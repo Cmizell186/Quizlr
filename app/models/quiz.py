@@ -12,10 +12,10 @@ class Quiz(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    user = db.relationship("User", back_populates='quiz')
-    subject = db.relationship("Subject", back_populates='quiz')
-    flashcard = db.relationship("FlashCard", back_populates='quiz')
-
+    user = db.relationship("User", back_populates='quiz') # relationship to user
+    subject = db.relationship("Subject", back_populates='quiz') # relationship to subject
+    flashcard = db.relationship("FlashCard", back_populates='quiz') # relationship to flashcards
+    study_set = db.relationship("StudySetQuiz", back_populates='quiz') # relationship to studysetquiz
 
     def to_dict(self):
         return{

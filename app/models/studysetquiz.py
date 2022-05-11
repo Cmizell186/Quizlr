@@ -10,6 +10,8 @@ class StudySetQuiz(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+    quiz = db.relationship("Quiz", back_populates='study_set') # relationship to quiz
+    study_set = db.relationship("StudySet", back_populates='study_quiz') # relationship to study set
     def to_dict(self):
         return{
             'id': self.id,

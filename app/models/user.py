@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
 
     quiz = db.relationship("Quiz", back_populates='user') # relationship to quiz
     flashcard = db.relationship("FlashCard", back_populates='user') # relationship to flashcard
-
+    study_set = db.relationship("StudySet", back_populates='user') # relationship to studyset
 
     @property
     def password(self):

@@ -6,10 +6,13 @@ class StudySet(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, nullable=False)
-    study_set_id = db.Column(db.Integer, nullable=False)
+    study_set_quiz_id = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    user = db.relationship("User", back_populates='study_set') # relationship to user
+    study_quiz = db.relationship("StudySetQuiz", back_populates='study_set') # relationship to study set quiz
 
     def to_dict(self):
         return{
