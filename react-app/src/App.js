@@ -9,6 +9,9 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
+// import of my stuff!
+import SubjectList from './components/subjects/subjects';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -42,6 +45,10 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
+          <SubjectList />
+        </ProtectedRoute>
+        <ProtectedRoute path='/subject/:id'>
+          <h1>yo</h1>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
