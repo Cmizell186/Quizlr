@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 
 // import of my stuff!
 import SubjectList from './components/subjects/subjects';
+import QuizList from './components/quizzes/quizzesList';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,8 +48,8 @@ function App() {
           <h1>My Home Page</h1>
           <SubjectList />
         </ProtectedRoute>
-        <ProtectedRoute path='/subject/:id'>
-          <h1>yo</h1>
+        <ProtectedRoute path='/subject/:subjectId'>
+          <QuizList/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

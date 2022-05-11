@@ -9,6 +9,7 @@ from .models import db, User, Subject, Quiz, FlashCard, StudySet, StudySetQuiz
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.subject_routes import subject_routes
+from .api.quiz_routes import quiz_routes
 
 from .seeds import seed_commands
 
@@ -33,6 +34,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(subject_routes, url_prefix='/api/subjects')
+app.register_blueprint(quiz_routes, url_prefix='/api/quizzes')
 db.init_app(app)
 Migrate(app, db)
 
