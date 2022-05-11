@@ -11,6 +11,10 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    quiz = db.relationship("Quiz", back_populates='user') # relationship to quiz
+    flashcard = db.relationship("FlashCard", back_populates='user') # relationship to flashcard
+    study_set = db.relationship("StudySet", back_populates='user') # relationship to studyset
+
     @property
     def password(self):
         return self.hashed_password

@@ -7,10 +7,15 @@ class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, nullable=False) # references user id
     subject_id = db.Column(db.Integer, nullable=False) # references subject id
-    title = db.Column(db.String, nullable=False)
-    description = db.Column(db.String, nullable=False)
+    title = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    user = db.relationship("User", back_populates='quiz') # relationship to user
+    subject = db.relationship("Subject", back_populates='quiz') # relationship to subject
+    flashcard = db.relationship("FlashCard", back_populates='quiz') # relationship to flashcards
+    study_set = db.relationship("StudySetQuiz", back_populates='quiz') # relationship to studysetquiz
 
     def to_dict(self):
         return{
