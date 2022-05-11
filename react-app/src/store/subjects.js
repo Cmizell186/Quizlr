@@ -6,18 +6,13 @@ const getSubject = (subjects) =>({
     subjects
 })
 
-export const subjectsList = () => async(dispatch) =>{
-    const res = await fetch('/api/subjects', {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
+export const get_all_subjects = () => async(dispatch) =>{
+    const res = await fetch('/api/subjects')
 
     if (res.ok){
         const subjects = await res.json();
+        console.log(subjects)
         dispatch(getSubject(subjects));
-        return subjects
     } else {
         return "ERROR AT SUBJECTSLIST THUNK"
     }
@@ -30,7 +25,7 @@ const subjectReducer = (state = initialState, action) =>{
     switch(action.type){
         case GET_SUBJECTS:
             newState = {};
-            action.subjects.forEach((subject) => (newState[subject.id] = subject))
+            action.subjects.subjects.forEach((subject) => (newState[subject.id] = subject))
             return newState;
         default:
             return state;
