@@ -11,6 +11,9 @@ class FlashCard(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+    quiz = db.relationship("Quiz", back_populates='flashcard') # relationship to quiz
+    user = db.relationship("User", back_populates='flashcard') # relationship to user
+
     def to_dict(self):
         return{
             'id': self.id,

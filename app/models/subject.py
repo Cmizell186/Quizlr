@@ -8,7 +8,7 @@ class Subject(db.Model):
     title = db.Column(db.String, nullable=False)
     subject = db.Column(db.String, nullable=False, unique=True)
 
-    subject_quiz = db.relationship("Quiz", back_populates='subject')
+    quiz = db.relationship("Quiz", back_populates='subject')
 
     def to_dict(self):
         return{
