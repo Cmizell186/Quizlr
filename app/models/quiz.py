@@ -12,6 +12,7 @@ class Quiz(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+    user = db.relationship("User", back_populates='quiz')
     def to_dict(self):
         return{
             "id": self.id,
