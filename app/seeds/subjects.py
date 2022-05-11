@@ -1,4 +1,3 @@
-from ast import Sub
 from app.models import db, Subject
 
 # Adds Subjects!

@@ -1,4 +1,3 @@
-from ast import Sub
 from flask import Blueprint
 from app.models import Subject
 

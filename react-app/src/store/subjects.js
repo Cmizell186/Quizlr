@@ -1,11 +1,13 @@
 // constants
 const GET_SUBJECTS = 'subjects/GET_SUBJECTS';
 
+// actions
 const getSubject = (subjects) =>({
     type: GET_SUBJECTS,
     subjects
 })
 
+// thunks
 export const get_all_subjects = () => async(dispatch) =>{
     const res = await fetch('/api/subjects')
 
