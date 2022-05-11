@@ -5,7 +5,6 @@ class Subject(db.Model):
     __tablename__ = 'subjects'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, nullable=False)
     subject = db.Column(db.String, nullable=False, unique=True)
 
     quiz = db.relationship("Quiz", back_populates='subject')
