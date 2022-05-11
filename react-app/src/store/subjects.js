@@ -9,7 +9,7 @@ const getSubject = (subjects) =>({
 
 // thunks
 export const get_all_subjects = () => async(dispatch) =>{
-    const res = await fetch('/api/subjects')
+    const res = await fetch('/api/subjects/')
 
     if (res.ok){
         const subjects = await res.json();
