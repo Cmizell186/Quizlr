@@ -50,8 +50,8 @@ function App() {
           <SubjectList />
         </ProtectedRoute>
         <ProtectedRoute path='/subject/:subjectId'>
-          <QuizList/>
           <NewQuizForm/>
+          <QuizList/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
