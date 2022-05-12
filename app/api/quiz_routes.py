@@ -10,7 +10,7 @@ def get_quizzes(id):
     quizzes = Quiz.query.filter(Quiz.subject_id == id).all()
     return {"quizzes": [quiz.to_dict() for quiz in quizzes]}
 
-@quiz_routes.route('/<int:id>')
+@quiz_routes.route('/<int:id>', methods=["POST"])
 def post_quizzes(id):
     form = NewQuizForm()
     form['csrf_token'].data = request.cookies['csrf_token']

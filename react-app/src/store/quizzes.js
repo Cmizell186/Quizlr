@@ -19,7 +19,7 @@ export const get_all_quizzes = (id) => async(dispatch) =>{
 
     if(res.ok){
         const quizzes = await res.json();
-        console.log(quizzes.quizzes)
+        // console.log(quizzes.quizzes)
         dispatch(getQuizzes(quizzes))
     }
 }
@@ -36,8 +36,8 @@ export const post_new_quiz = (quiz,id) => async(dispatch) =>{
 
     if(res.ok){
         const newQuiz = await res.json()
-        await dispatch(createNewQuiz)
         console.log(newQuiz)
+        await dispatch(createNewQuiz)
         return newQuiz
     } else {
         return "error at post_new_quiz thunk!"
