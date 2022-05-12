@@ -38,13 +38,18 @@ const NewQuizForm = () => {
         if (Array.isArray(data)){
             return setErrors(data)
         } else {
-            setOpen(false)
+            console.log('hitting the right shit')
+            openModal();
         }
+    }
+    
+    const openModal = () =>{
+        setOpen(!open)
     }
 
     return (
         <>
-            <Popup trigger={<button onClick={() => setOpen(true)}>Create New Quiz</button>}>
+            <Popup trigger={<button >Create New Quiz</button>} onClose={openModal}>
                 <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
                     <input
                     type='text'
