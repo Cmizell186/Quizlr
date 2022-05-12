@@ -24,13 +24,21 @@ export const get_all_quizzes = (id) => async(dispatch) =>{
     }
 }
 
-export const post_new_quiz = () => async(dispatch) =>{
-    const res = await fetch('/api/quizzes/')
+export const post_new_quiz = (quiz,id) => async(dispatch) =>{
+    const res = await fetch(`/api/quizzes/${id}`, {
+        method: "POST",
+        headers: {
+            "Accept": 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quiz)
+    })
 
     if(res.ok){
         const newQuiz = await res.json()
+        await dispatch(createNewQuiz)
         console.log(newQuiz)
-        dispatch()
+        return newQuiz
     } else {
         return "error at post_new_quiz thunk!"
     }
