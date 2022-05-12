@@ -39,14 +39,14 @@ const NewQuizForm = () => {
         if (Array.isArray(data)){
             return setErrors(data)
         } else {
-            // console.log('hitting the right shit')
+            setDescription("");
+            setTitle("");
+            setErrors([]);
             openModal();
         }
     }
 
-    const openModal = () =>{
-        setOpen(!open)
-    }
+    const openModal = () => setOpen(!open);
 
     return (
         <>
