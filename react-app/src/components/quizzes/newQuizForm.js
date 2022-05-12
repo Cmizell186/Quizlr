@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { post_new_quiz } from '../../store/quizzes';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 
 
 const NewQuizForm = () => {
@@ -11,6 +14,7 @@ const NewQuizForm = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
+    const [open, setOpen] = useState(false);
     // useSelectors
     const sessionUser = useSelector(state => state.session.user);
     const {subjectId} = useParams()
@@ -31,40 +35,41 @@ const NewQuizForm = () => {
         }
 
         const data = await dispatch(post_new_quiz(newQuiz, subjectId))
-        // console.log(data)
-        // console.log(data)
-
         if (Array.isArray(data)){
-            setErrors(data)
+            return setErrors(data)
+        } else {
+            setOpen(false)
         }
     }
 
     return (
         <>
-            <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
-                <input
-                type='text'
-                name='title'
-                placeholder='Quiz Title'
-                onChange={e => setTitle(e.target.value)}
-                value={title}
-                />
-                <input
-                type='text'
-                name='description'
-                placeholder='About This Quiz'
-                onChange={e => setDescription(e.target.value)}
-                value={description}
-                />
-                <button type='submit'> Create New </button>
-                {errors &&
-                <div>
-                    {errors.map((error, inx) =>(
-                        <div key={inx}>{error}</div>
-                    ))}
-                </div>
-                }
-            </form>
+            <Popup trigger={<button onClick={() => setOpen(true)}>Create New Quiz</button>}>
+                <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
+                    <input
+                    type='text'
+                    name='title'
+                    placeholder='Quiz Title'
+                    onChange={e => setTitle(e.target.value)}
+                    value={title}
+                    />
+                    <input
+                    type='text'
+                    name='description'
+                    placeholder='About This Quiz'
+                    onChange={e => setDescription(e.target.value)}
+                    value={description}
+                    />
+                    <button type='submit'> Create New </button>
+                    {errors &&
+                    <div>
+                        {errors.map((error, inx) =>(
+                            <div key={inx}>{error}</div>
+                        ))}
+                    </div>
+                    }
+                </form>
+            </Popup>
         </>
     )
 
