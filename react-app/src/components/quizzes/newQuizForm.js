@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { post_new_quiz } from '../../store/quizzes';
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+// import 'reactjs-popup/dist/index.css';
+import "./newQuizForm.css"
 
 
 
@@ -38,18 +39,19 @@ const NewQuizForm = () => {
         if (Array.isArray(data)){
             return setErrors(data)
         } else {
-            console.log('hitting the right shit')
+            // console.log('hitting the right shit')
             openModal();
         }
     }
-    
+
     const openModal = () =>{
         setOpen(!open)
     }
 
     return (
         <>
-            <Popup trigger={<button >Create New Quiz</button>} onClose={openModal}>
+            <button onClick={openModal}>Open modal</button>
+            <Popup open={open} modal>
                 <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
                     <input
                     type='text'
