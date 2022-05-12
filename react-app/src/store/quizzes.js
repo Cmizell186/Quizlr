@@ -10,7 +10,7 @@ const getQuizzes = (quizzes) => ({
 
 const createNewQuiz = (quiz) => ({
     type: POST_QUIZ,
-    qizzes: quiz
+    quiz
 })
 
 // thunks
@@ -36,8 +36,8 @@ export const post_new_quiz = (quiz,id) => async(dispatch) =>{
 
     if(res.ok){
         const newQuiz = await res.json()
+        await dispatch(createNewQuiz(newQuiz))
         console.log(newQuiz)
-        await dispatch(createNewQuiz)
         return newQuiz
     } else {
         return "error at post_new_quiz thunk!"
@@ -54,8 +54,8 @@ const quizReducer = (state = initialState, action) =>{
             action.quizzes.quizzes.forEach((quiz) => (newState[quiz.id] = quiz))
             return newState
         case POST_QUIZ:
-            newState = {};
-
+            newState = {...state, [action.quiz.id]: action.quiz};
+            return newState
         default:
             return state
     }
