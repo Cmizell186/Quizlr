@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
+from app.api.auth_routes import validation_errors_to_error_messages
 from app.models import db, Quiz, subject
 from app.forms.quiz_form import NewQuizForm
 
@@ -24,8 +25,5 @@ def post_quizzes(id):
         )
         db.session.add(quiz)
         db.session.commit()
-
         return quiz.to_dict()
-    else:
-        print(form.errors)
-        return "bad data"
+    return {"error": validation_errors_to_error_messages(form.errors)}, 401

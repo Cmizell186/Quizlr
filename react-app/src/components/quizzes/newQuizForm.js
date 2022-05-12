@@ -8,9 +8,9 @@ const NewQuizForm = () => {
     const dispatch = useDispatch();
 
     // useStates
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
-
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [errors, setErrors] = useState([]);
     // useSelectors
     const sessionUser = useSelector(state => state.session.user);
     const {subjectId} = useParams()
@@ -30,7 +30,13 @@ const NewQuizForm = () => {
             subject_id: subjectId
         }
 
-        await dispatch(post_new_quiz(newQuiz, subjectId))
+        const data = await dispatch(post_new_quiz(newQuiz, subjectId))
+        // console.log(data)
+        // console.log(data)
+
+        if (Array.isArray(data)){
+            setErrors(data)
+        }
     }
 
     return (
@@ -51,6 +57,13 @@ const NewQuizForm = () => {
                 value={description}
                 />
                 <button type='submit'> Create New </button>
+                {errors &&
+                <div>
+                    {errors.map((error, inx) =>(
+                        <div key={inx}>{error}</div>
+                    ))}
+                </div>
+                }
             </form>
         </>
     )

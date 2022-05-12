@@ -37,10 +37,14 @@ export const post_new_quiz = (quiz,id) => async(dispatch) =>{
     if(res.ok){
         const newQuiz = await res.json()
         await dispatch(createNewQuiz(newQuiz))
-        console.log(newQuiz)
         return newQuiz
+    } else if (res.status < 500){
+        const data = await res.json();
+        if(data.error){
+            return data.error
+        }
     } else {
-        return "error at post_new_quiz thunk!"
+        return 'Error at post_new_quiz thunk'
     }
 }
 
