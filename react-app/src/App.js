@@ -12,7 +12,8 @@ import { authenticate } from './store/session';
 // import of my stuff!
 import SubjectList from './components/subjects/subjects';
 import QuizList from './components/quizzes/quizzesList';
-import NewQuizForm from './components/quizzes/newQuizForm';
+// import NewQuizForm from './components/quizzes/newQuizForm';
+import NewQuizModal from './components/quizzes/newQuizModal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,7 +51,7 @@ function App() {
           <SubjectList />
         </ProtectedRoute>
         <ProtectedRoute path='/subject/:subjectId'>
-          <NewQuizForm/>
+          <NewQuizModal/>
           <QuizList/>
         </ProtectedRoute>
       </Switch>
