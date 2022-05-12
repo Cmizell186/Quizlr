@@ -10,7 +10,7 @@ const getQuizzes = (quizzes) => ({
 
 const createNewQuiz = (quiz) => ({
     type: POST_QUIZ,
-    qizzes: quiz
+    quiz
 })
 
 // thunks
@@ -19,18 +19,26 @@ export const get_all_quizzes = (id) => async(dispatch) =>{
 
     if(res.ok){
         const quizzes = await res.json();
-        console.log(quizzes.quizzes)
+        // console.log(quizzes.quizzes)
         dispatch(getQuizzes(quizzes))
     }
 }
 
-export const post_new_quiz = () => async(dispatch) =>{
-    const res = await fetch('/api/quizzes/')
+export const post_new_quiz = (quiz,id) => async(dispatch) =>{
+    const res = await fetch(`/api/quizzes/${id}`, {
+        method: "POST",
+        headers: {
+            "Accept": 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quiz)
+    })
 
     if(res.ok){
         const newQuiz = await res.json()
+        await dispatch(createNewQuiz(newQuiz))
         console.log(newQuiz)
-        dispatch()
+        return newQuiz
     } else {
         return "error at post_new_quiz thunk!"
     }
@@ -46,8 +54,8 @@ const quizReducer = (state = initialState, action) =>{
             action.quizzes.quizzes.forEach((quiz) => (newState[quiz.id] = quiz))
             return newState
         case POST_QUIZ:
-            newState = {};
-
+            newState = {...state, [action.quiz.id]: action.quiz};
+            return newState
         default:
             return state
     }
