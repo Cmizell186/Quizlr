@@ -15,6 +15,7 @@ const SubjectList = () =>{
     return (
         <>
             <div className='subject-list'>
+                <h2>Subjects</h2>
                 {subjects?.map((subject) =>(
                     <div key={subject?.id}>
                         <Link to={`/subject/${subject.id}`}>{subject?.subject}</Link>
