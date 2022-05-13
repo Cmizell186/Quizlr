@@ -1,11 +1,17 @@
 // constants
 const GET_QUIZZES = 'quizzes/GET_QUIZZES';
+const GET_ONE_QUIZ = 'quizzes/GET_ONE_QUIZ';
 const POST_QUIZ = 'quizzes/POST_QUIZ';
 
 // actions
 const getQuizzes = (quizzes) => ({
     type: GET_QUIZZES,
     quizzes
+})
+
+const getOneQuiz = (quiz) =>({
+    type: GET_ONE_QUIZ,
+    quiz
 })
 
 const createNewQuiz = (quiz) => ({
@@ -21,6 +27,16 @@ export const get_all_quizzes = (id) => async(dispatch) =>{
         const quizzes = await res.json();
         // console.log(quizzes.quizzes)
         dispatch(getQuizzes(quizzes))
+    }
+}
+
+export const get_one_quiz = (id) => async(dispatch) =>{
+    const res = await fetch(`/api/quizzes/quiz/${id}`)
+
+    if(res.ok){
+        const quiz = await res.json();
+        // console.log(quiz);
+        dispatch(getOneQuiz(quiz));
     }
 }
 
@@ -60,6 +76,14 @@ const quizReducer = (state = initialState, action) =>{
         case POST_QUIZ:
             newState = {...state, [action.quiz.id]: action.quiz};
             return newState
+        case GET_ONE_QUIZ:
+            return {
+                ...state,
+                [action.quiz.id]: {
+                    ...state[action.quiz.id],
+                    ...action.quiz
+                }
+            }
         default:
             return state
     }
