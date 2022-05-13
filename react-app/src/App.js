@@ -13,7 +13,7 @@ import { authenticate } from './store/session';
 import SubjectList from './components/subjects/subjects';
 import QuizList from './components/quizzes/quizzesList';
 import NewQuizForm from './components/quizzes/newQuizForm';
-import NewQuizModal from './components/quizzes/newQuizModal';
+import SpecificQuiz from './components/quizzes/specificQuiz';
 
 
 function App() {
@@ -54,6 +54,9 @@ function App() {
         <ProtectedRoute path='/subject/:subjectId'>
           <NewQuizForm/>
           <QuizList/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/quiz/:quizId'>
+          <SpecificQuiz/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
