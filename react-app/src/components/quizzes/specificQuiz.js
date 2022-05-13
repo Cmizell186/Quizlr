@@ -17,7 +17,7 @@ const SpecificQuiz = () =>{
     return (
         <>
             <div>
-                <h1>{quiz?.quiz?.title}</h1>
+                <h1>{quiz?.title}</h1>
             </div>
         </>
     )

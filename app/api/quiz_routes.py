@@ -41,7 +41,8 @@ def put_quiz(id):
     form = EditQuiz()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    specific_quiz = Quiz.query.get(id)
+    specific_quiz = db.session.query(Quiz).filter(Quiz.id == id).first()
+
 
     if request.method == "PUT":
         if(specific_quiz):
@@ -52,7 +53,7 @@ def put_quiz(id):
     return {"error": validation_errors_to_error_messages(form.errors)}, 401
 
 
-@quiz_routes.route('/<int:id>', methods=["DELETE"])
+@quiz_routes.route('/quiz/<int:id>', methods=["DELETE"])
 def delete_quiz(id):
     quiz = db.session.query(Quiz).filter(Quiz.id == id).first()
     db.session.delete(quiz)

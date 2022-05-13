@@ -35,8 +35,8 @@ export const get_one_quiz = (id) => async(dispatch) =>{
 
     if(res.ok){
         const quiz = await res.json();
-        console.log(quiz, "FROM REACT THUNK");
-        dispatch(getOneQuiz(quiz));
+        console.log(quiz.quiz, "FROM REACT THUNK");
+        dispatch(getOneQuiz(quiz.quiz));
     }
 }
 
@@ -78,10 +78,9 @@ const quizReducer = (state = initialState, action) =>{
             return newState
         case GET_ONE_QUIZ:
             return {
-                ...state,
-                [action.quiz.quiz.id]: {
-                    ...state[action.quiz.quiz.id],
-                    ...action.quiz.quiz
+                [action.quiz.id]: {
+                    ...state[action.quiz.id],
+                    ...action.quiz
                 }
             }
         default:
