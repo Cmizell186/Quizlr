@@ -18,6 +18,7 @@ const SpecificQuiz = () =>{
         <>
             <div>
                 <h1>{quiz?.title}</h1>
+                <p>{quiz?.description}</p>
             </div>
         </>
     )

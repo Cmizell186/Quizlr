@@ -39,9 +39,9 @@ const NewQuizForm = () => {
         if (Array.isArray(data)){
             return setErrors(data)
         } else {
-            setDescription("");
-            setTitle("");
             setErrors([]);
+            setTitle("");
+            setDescription("");
             openModal();
         }
     }
@@ -63,7 +63,7 @@ const NewQuizForm = () => {
                     <input
                     type='text'
                     name='description'
-                    placeholder='About This Quiz'
+                    placeholder='Description of quiz'
                     onChange={e => setDescription(e.target.value)}
                     value={description}
                     />
