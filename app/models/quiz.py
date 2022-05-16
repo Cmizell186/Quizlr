@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from .db import db
 from datetime import datetime
 
@@ -14,7 +15,7 @@ class Quiz(db.Model):
 
     user = db.relationship("User", back_populates='quiz') # relationship to user
     subject = db.relationship("Subject", back_populates='quiz') # relationship to subject
-    flashcard = db.relationship("FlashCard", back_populates='quiz') # relationship to flashcards
+    flashcard = db.relationship("FlashCard", back_populates='quiz', cascade="all, delete") # relationship to flashcards
     study_set_quiz = db.relationship("StudySetQuiz", back_populates='quiz') # relationship to studysetquiz
 
     def to_dict(self):

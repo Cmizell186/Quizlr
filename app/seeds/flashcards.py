@@ -6,14 +6,14 @@ def seed_flashcards():
     flashcard1_1 = FlashCard(
         user_id = 3,
         quiz_id = 1,
-        description = "when was christopher mizell born",
-        answer = "june 18th 2000",
+        front = "when was christopher mizell born",
+        back = "june 18th 2000",
     )
     flashcard1_2 = FlashCard(
         user_id = 3,
         quiz_id = 1,
-        description = "how old was christopher when he started high school",
-        answer = "13"
+        front = "how old was christopher when he started high school",
+        back = "13"
     )
 
     db.session.add_all([flashcard1_1, flashcard1_2])

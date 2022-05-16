@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { get_all_flashcards } from "../../store/flashcards";
+import { FlashcardArray } from "react-quizlet-flashcard";
 
 const FlashCardList = () => {
     const dispatch = useDispatch();
@@ -15,12 +16,7 @@ const FlashCardList = () => {
     return (
         <>
             <div className="flashcard-list">
-                {flashcards?.map((flashcard) =>(
-                    <div key={flashcard?.id}>
-                        <p>{flashcard?.description}</p>
-                        <p>{flashcard?.answer}</p>
-                    </div>
-                ))}
+                <FlashcardArray cards={flashcards}/>
             </div>
         </>
     )

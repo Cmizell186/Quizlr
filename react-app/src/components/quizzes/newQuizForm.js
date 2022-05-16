@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { post_new_quiz } from '../../store/quizzes';
 import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
 import "./newQuizForm.css"
 
 
@@ -20,8 +19,6 @@ const NewQuizForm = () => {
     // useSelectors
     const sessionUser = useSelector(state => state.session.user);
     const {subjectId} = useParams()
-    // console.log(subjectId)
-    // console.log(sessionUser)
 
 
     // handle submit functions
