@@ -40,8 +40,13 @@ export const post_new_flashcard = (flashcard, id) => async(dispatch) =>{
         const newFlashcard = await res.json()
         await dispatch(createNewFlashcard(newFlashcard))
         return newFlashcard
+    }else if (res.status < 500){
+        const data = await res.json();
+        if(data.error){
+            return data.error
+        }
     } else {
-        return "ERROR AT POST_NEW_FLASHCARD THUNK!@"
+        return "ERROR AT POST_NEWFLASHCARD thunk"
     }
 }
 

@@ -22,7 +22,6 @@ const NewQuizForm = () => {
     const {subjectId} = useParams()
     // console.log(subjectId)
     // console.log(sessionUser)
-    // useEffects
 
 
     // handle submit functions

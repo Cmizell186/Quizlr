@@ -23,7 +23,6 @@ def post_flashjcard(id):
             user_id = current_user.id,
             quiz_id = id
         )
-        print(flashcard.to_dict())
         db.session.add(flashcard)
         db.session.commit()
         return flashcard.to_dict()
