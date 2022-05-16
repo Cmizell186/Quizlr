@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { post_new_quiz } from '../../store/quizzes';
 import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
 import "./newQuizForm.css"
 
 
