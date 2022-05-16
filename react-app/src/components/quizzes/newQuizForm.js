@@ -20,8 +20,6 @@ const NewQuizForm = () => {
     // useSelectors
     const sessionUser = useSelector(state => state.session.user);
     const {subjectId} = useParams()
-    // console.log(subjectId)
-    // console.log(sessionUser)
 
 
     // handle submit functions
