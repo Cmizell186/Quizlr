@@ -45,7 +45,7 @@ def put_quiz(id):
     specific_quiz = db.session.query(Quiz).filter(Quiz.id == id).first()
 
 
-    if(form.validate_on_submit):
+    if(form.validate_on_submit()):
         specific_quiz.title = form.title.data
         specific_quiz.description = form.description.data
         db.session.commit()

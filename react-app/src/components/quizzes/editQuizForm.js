@@ -15,11 +15,11 @@ const EditQuizForm = ({quiz}) =>{
     // useStates
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    // const [errors, setErrors] = useState([]);
-    // const [open, setOpen] = useState(false);
+    const [errors, setErrors] = useState([]);
+    const [open, setOpen] = useState(false);
 
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async(e) =>{
         e.preventDefault();
 
         const editQuiz = {
@@ -29,11 +29,24 @@ const EditQuizForm = ({quiz}) =>{
             id: quizId
         }
 
-        const data = dispatch(update_quiz(editQuiz))
+        const data = await dispatch(update_quiz(editQuiz))
+        if(Array.isArray(data)){
+            console.log(data)
+            return setErrors(data)
+        } else {
+            setErrors([]);
+            setTitle("");
+            setDescription("");
+            openModal();
+        }
     }
+
+    const openModal = () => setOpen(!open);
 
     return (
         <>
+            <button onClick={openModal}>Edit Quiz</button>
+            <Popup open={open} modal>
             <form className="edit-quiz-form"  onSubmit={e => handleSubmit(e)}>
                 <input
                     type='text'
@@ -48,7 +61,15 @@ const EditQuizForm = ({quiz}) =>{
                     onChange={e => setDescription(e.target.value)}
                 />
                 <button type="submit">edit quiz confirm</button>
+                {errors &&
+                    <div>
+                        {errors.map((error, inx) =>(
+                            <div key={inx}>{error}</div>
+                        ))}
+                    </div>
+                }
             </form>
+            </Popup>
         </>
     )
 }
