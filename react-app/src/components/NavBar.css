@@ -5,6 +5,7 @@
     justify-content: space-between;
     border-bottom: 1px solid black;
     margin-bottom: 0px;
+    height: 75px;
 }
 
 
@@ -17,10 +18,12 @@
 .home-button{
     margin-left: 15px;
     margin-right: 15px;
+    padding: 2px;
 }
-
-
-
+.home-button:hover{
+    transition: none;
+    border-bottom: 5px solid blue;
+}
 
 .right-content{
     margin-left: 60%;
@@ -29,6 +32,33 @@
     flex-direction: row;
     align-items: center;
 }
+
+
+.login-nav-button{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login-nav-button:hover{
+    transition: none;
+    background-color: rgba(219, 219, 219, 0.3);
+}
+
+.signup-nav-button{
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffcd1f;
+}
+.signup-nav-button:hover{
+    transition: none;
+    background-color: rgba(255, 205, 31, .6);
+}
+
 
 .quizlr-nav-title{
     color: #4255ff;
