@@ -15,9 +15,15 @@ const FlashCardList = () => {
 
     return (
         <>
-            <div className="flashcard-list">
+            <div className="flashcard-carousel">
                 <FlashcardArray cards={flashcards}/>
             </div>
+            {flashcards.map(flashcard =>(
+                <div key={flashcard?.id}>
+                    <p>{flashcard?.front}</p>
+                    <p>{flashcard?.back}</p>
+                </div>
+            ))}
         </>
     )
 }
