@@ -9,8 +9,8 @@ const NewFlashcardForm = () =>{
     const dispatch = useDispatch();
 
     // useStates
-    const [description, setDescription] = useState("");
-    const [answer, setAnswer] = useState("");
+    const [front, setFront] = useState("");
+    const [back, setBack] = useState("");
     const [errors, setErrors] = useState([]);
     const [open, setOpen] = useState(false);
 
@@ -25,8 +25,8 @@ const NewFlashcardForm = () =>{
 
         const newFlashcard = {
             user_id: sessionUser.id,
-            description,
-            answer,
+            front,
+            back,
             quiz_id : quizId
         }
 
@@ -35,8 +35,8 @@ const NewFlashcardForm = () =>{
             return setErrors(data)
         } else {
             setErrors([]);
-            setAnswer("");
-            setDescription("");
+            setBack("");
+            setFront("");
             openModal();
         }
     }
@@ -50,17 +50,17 @@ const NewFlashcardForm = () =>{
                 <form className="new-flashcard-form" onSubmit={e => handleSubmit(e)}>
                     <input
                         type='text'
-                        name='description'
+                        name='front'
                         placeholder="Flashcard Question"
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
+                        value={front}
+                        onChange={e => setFront(e.target.value)}
                     />
                     <input
                         type='text'
-                        name='answer'
-                        placeholder="Flashcard Question"
-                        value={answer}
-                        onChange={e => setAnswer(e.target.value)}
+                        name='back'
+                        placeholder="Flashcard Answer"
+                        value={back}
+                        onChange={e => setBack(e.target.value)}
                     />
                     <button>submit new flashcard!</button>
                     {errors &&

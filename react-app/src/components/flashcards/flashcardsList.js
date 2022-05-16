@@ -17,8 +17,8 @@ const FlashCardList = () => {
             <div className="flashcard-list">
                 {flashcards?.map((flashcard) =>(
                     <div key={flashcard?.id}>
-                        <p>{flashcard?.description}</p>
-                        <p>{flashcard?.answer}</p>
+                        <p>{flashcard?.front}</p>
+                        <p>{flashcard?.back}</p>
                     </div>
                 ))}
             </div>

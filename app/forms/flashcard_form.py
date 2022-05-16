@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired
 from app.models import FlashCard
 
 class NewFlashcardForm(FlaskForm):
-    description = StringField('description', validators=[DataRequired()])
-    answer = StringField('answer', validators=[DataRequired()])
+    front = StringField('front', validators=[DataRequired()])
+    back = StringField('back', validators=[DataRequired()])

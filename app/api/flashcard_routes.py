@@ -18,8 +18,8 @@ def post_flashjcard(id):
 
     if(form.validate_on_submit()):
         flashcard = FlashCard(
-            description = form.description.data,
-            answer = form.answer.data,
+            front = form.front.data,
+            back = form.back.data,
             user_id = current_user.id,
             quiz_id = id
         )
