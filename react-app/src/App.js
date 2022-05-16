@@ -14,7 +14,7 @@ import SubjectList from './components/subjects/subjects';
 import QuizList from './components/quizzes/quizzesList';
 import NewQuizForm from './components/quizzes/newQuizForm';
 import SpecificQuiz from './components/quizzes/specificQuiz';
-
+import SplashPage from './components/splashpage/splashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,6 +35,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route exact path="/">
+          <SplashPage />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -47,8 +50,7 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/subjects' exact={true} >
           <SubjectList />
         </ProtectedRoute>
         <ProtectedRoute path='/subject/:subjectId'>
