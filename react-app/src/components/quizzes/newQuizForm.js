@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { post_new_quiz } from '../../store/quizzes';
@@ -22,7 +22,6 @@ const NewQuizForm = () => {
     const {subjectId} = useParams()
     // console.log(subjectId)
     // console.log(sessionUser)
-    // useEffects
 
 
     // handle submit functions

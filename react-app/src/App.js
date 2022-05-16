@@ -15,6 +15,7 @@ import QuizList from './components/quizzes/quizzesList';
 import NewQuizForm from './components/quizzes/newQuizForm';
 import SpecificQuiz from './components/quizzes/specificQuiz';
 import SplashPage from './components/splashpage/splashPage';
+import FlashCardList from './components/flashcards/flashcardsList';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -59,6 +60,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/quiz/:quizId'>
           <SpecificQuiz/>
+          <FlashCardList />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

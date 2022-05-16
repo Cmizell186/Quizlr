@@ -50,6 +50,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('quiz_id', sa.Integer(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
+    sa.Column('answer', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['quiz_id'], ['quizzes.id'], ),
