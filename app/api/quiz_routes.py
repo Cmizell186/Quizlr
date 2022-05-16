@@ -4,7 +4,7 @@ from flask_login import current_user
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.models import db, Quiz, subject
 from app.forms.quiz_form import NewQuizForm
-# from app.forms.edit_quiz_form import EditQuiz
+from app.forms.edit_quiz_form import EditQuiz
 
 quiz_routes = Blueprint('quizzes', __name__)
 
@@ -37,21 +37,20 @@ def post_quizzes(id):
     return {"error": validation_errors_to_error_messages(form.errors)}, 401
 
 
-# @quiz_routes.route('/quiz/<int:id>', methods=["PUT"])
-# def put_quiz(id):
-#     form = EditQuiz()
-#     form['csrf_token'].data = request.cookies['csrf_token']
+@quiz_routes.route('/quiz/<int:id>', methods=["PUT"])
+def put_quiz(id):
+    form = EditQuiz()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-#     specific_quiz = db.session.query(Quiz).filter(Quiz.id == id).first()
+    specific_quiz = db.session.query(Quiz).filter(Quiz.id == id).first()
 
 
-#     if request.method == "PUT":
-#         if(specific_quiz):
-#             specific_quiz.title = form.title.data
-#             specific_quiz.description = form.description.data
-#         db.session.commit()
-#         return specific_quiz.to_dict()
-#     return {"error": validation_errors_to_error_messages(form.errors)}, 401
+    if(specific_quiz):
+        specific_quiz.title = form.title.data
+        specific_quiz.description = form.description.data
+        db.session.commit()
+        return specific_quiz.to_dict()
+    return {"error": validation_errors_to_error_messages(form.errors)}, 401
 
 
 @quiz_routes.route('/quiz/<int:id>', methods=["DELETE"])

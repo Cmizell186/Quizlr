@@ -9,6 +9,7 @@ import "./newQuizForm.css"
 
 
 const NewQuizForm = () => {
+    // react hooks
     const dispatch = useDispatch();
 
     // useStates

@@ -7,9 +7,8 @@ const QuizList = () =>{
     const dispatch = useDispatch();
     const quizzes = useSelector(state => Object.values(state.quizzes))
     const {subjectId} = useParams()
-    // console.log(useParams())
-    // console.log(subjectId)
-    // console.log(quizzes)
+
+
     useEffect(() =>{
         dispatch(get_all_quizzes(subjectId))
     }, [dispatch])
