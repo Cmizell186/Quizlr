@@ -1,36 +1,47 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import { useSelector } from 'react-redux';
+import "./NavBar.css"
 
 const NavBar = () => {
+  const sessionUser = useSelector(state => state.session.user)
+
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav className='nav-bar'>
+      <div className='content-left'>
+        <div>
+          <h1 className='quizlr-nav-title'>Quizlr</h1>
+        </div>
+        <div className='home-button'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
+        </div>
+          <div>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
-        <li>
+        </div>
+      </div>
+        <div className='right-content'>
+          <div>
+            <NavLink to='/login' exact={true} activeClassName='active'>
+              Login
+            </NavLink>
+          </div>
+          <div>
+            <NavLink to='/sign-up' exact={true} activeClassName='active'>
+              Sign Up
+            </NavLink>
+          </div>
+        </div>
+        {sessionUser ?
+        <div>
           <LogoutButton />
-        </li>
-      </ul>
+        </div>
+        :
+        <></>}
     </nav>
   );
 }
