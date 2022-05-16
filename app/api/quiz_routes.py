@@ -30,7 +30,6 @@ def post_quizzes(id):
             user_id = current_user.id,
             subject_id = id,
         )
-        print(quiz.to_dict())
         db.session.add(quiz)
         db.session.commit()
         return quiz.to_dict()

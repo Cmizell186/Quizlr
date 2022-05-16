@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { get_one_quiz, delete_quiz } from "../../store/quizzes";
 import EditQuizForm from "./editQuizForm";
+import NewFlashcardForm from "../flashcards/newFlashcardForm";
 
 
 const SpecificQuiz = () =>{
@@ -33,6 +34,10 @@ const SpecificQuiz = () =>{
             {sessionUser.id == quiz?.user_id ?
             <button onClick={handleClick}>DELETE QUIZ</button>
             : <></>}
+            {sessionUser.id == quiz?.user_id?
+            <NewFlashcardForm/>
+            : <></>
+            }
         </>
     )
 }
