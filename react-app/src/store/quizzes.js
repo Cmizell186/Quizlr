@@ -3,6 +3,7 @@ const GET_QUIZZES = 'quizzes/GET_QUIZZES';
 const GET_ONE_QUIZ = 'quizzes/GET_ONE_QUIZ';
 const POST_QUIZ = 'quizzes/POST_QUIZ';
 const EDIT_QUIZ = 'quizzes/EDIT_QUIZ';
+const DELETE_QUIZ = 'quizzes/DELETE_QUIZ';
 
 // actions
 const getQuizzes = (quizzes) => ({
@@ -23,6 +24,11 @@ const createNewQuiz = (quiz) => ({
 const editQuiz = (quiz) =>({
     type: EDIT_QUIZ,
     quiz
+})
+
+const deleteQuiz = (id) =>({
+    type: DELETE_QUIZ,
+    quiz_id: id
 })
 
 // thunks
@@ -94,6 +100,17 @@ export const update_quiz = (quiz) => async(dispatch) =>{
     }
 }
 
+export const delete_quiz = (id) => async(dispatch) =>{
+    const res = await fetch(`/api/quizzes/quiz/${id}`, {
+        method: "DELETE",
+    })
+    if(res.ok){
+        dispatch(deleteQuiz(id))
+    } else {
+        return "ERROR AT DELETE QUIZ THUNK"
+    }
+}
+
 const initialState = {}
 const quizReducer = (state = initialState, action) =>{
     let newState;
@@ -118,6 +135,10 @@ const quizReducer = (state = initialState, action) =>{
                     ...action.quiz
                 }
             }
+        case DELETE_QUIZ:
+            newState = {...state};
+            delete newState[action.quiz_id]
+            return newState
         default:
             return state
     }
