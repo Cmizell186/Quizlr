@@ -20,7 +20,7 @@ const SpecificQuiz = () =>{
 
     const handleClick = () =>{
         dispatch(delete_quiz(quizId))
-        return history.push('/')
+        return history.push(`/subject/${quiz.subject_id}`)
     }
     return (
         <>
