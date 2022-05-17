@@ -15,7 +15,7 @@ const FlashCardList = () => {
 
     useEffect(() =>{
         dispatch(get_all_flashcards(quizId))
-    }, [dispatch])
+    }, [dispatch, quizId])
 
 
     return (

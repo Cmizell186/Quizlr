@@ -13,8 +13,8 @@ const EditQuizForm = ({quiz}) =>{
 
 
     // useStates
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
+    const [title, setTitle] = useState(quiz?.title);
+    const [description, setDescription] = useState(quiz.description);
     const [errors, setErrors] = useState([]);
     const [open, setOpen] = useState(false);
 
@@ -49,12 +49,14 @@ const EditQuizForm = ({quiz}) =>{
             <Popup open={open} modal>
             <form className="edit-quiz-form"  onSubmit={e => handleSubmit(e)}>
                 <input
+                    id="edit-title"
                     type='text'
                     name='title'
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                 />
                 <input
+                    id="edit-description"
                     type="text"
                     name="description"
                     value={description}
@@ -64,7 +66,7 @@ const EditQuizForm = ({quiz}) =>{
                 {errors &&
                     <div>
                         {errors.map((error, inx) =>(
-                            <div key={inx}>{error}</div>
+                            <div key={inx} style={{color:"red"}}>{error}</div>
                         ))}
                     </div>
                 }

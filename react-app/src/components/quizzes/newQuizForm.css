@@ -33,3 +33,42 @@
     width: fit-content;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
   }
+
+
+
+.edit-quiz-form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-title{
+    width: 50%;
+    height: 3vh;
+}
+#edit-description{
+    width: 50%;
+    height: 3vh;
+}
+
+
+.new-quiz-form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-title{
+    width: 50%;
+    height: 3vh;
+}
+#new-description{
+    width: 50%;
+    height: 3vh;
+}

@@ -3,5 +3,5 @@ from wtforms import StringField
 from wtforms.validators import DataRequired
 
 class NewQuizForm(FlaskForm):
-    title = StringField('title', validators=[DataRequired()])
-    description = StringField('description', validators=[DataRequired()])
+    title = StringField('title', validators=[DataRequired(message="Please provide title")])
+    description = StringField('description', validators=[DataRequired(message="Please provide description")])
