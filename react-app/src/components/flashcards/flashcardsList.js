@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { get_all_flashcards } from "../../store/flashcards";
 import { FlashcardArray } from "react-quizlet-flashcard";
 import EditFlashcardForm from "./editFlashcardForm";
+import DeleteFlashCard from "./deleteFlashCard";
 
 const FlashCardList = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const FlashCardList = () => {
         dispatch(get_all_flashcards(quizId))
     }, [dispatch])
 
+
     return (
         <>
             <div className="flashcard-carousel">
@@ -25,7 +27,12 @@ const FlashCardList = () => {
                 <div key={flashcard?.id}>
                     <p>{flashcard?.front}</p>
                     <p>{flashcard?.back}</p>
-                    {sessionUser?.id === flashcard?.user_id ? <EditFlashcardForm flashcard={flashcard}/> : <></>}
+                    {sessionUser?.id === flashcard?.user_id ?
+                    <EditFlashcardForm flashcard={flashcard}/>
+                     : <></>}
+                    {sessionUser?.id === flashcard?.user_id ?
+                    <DeleteFlashCard flashcard={flashcard}/>
+                     : <></>}
                 </div>
             ))}
         </>

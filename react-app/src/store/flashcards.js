@@ -26,6 +26,11 @@ const editFlashcard = (flashcard) =>({
     flashcard
 })
 
+const deleteFlashcard = (id) =>({
+    type: DELETE_FLASHCARD,
+    flashcard_id: id
+})
+
 // thunks
 export const get_all_flashcards = (id) => async(dispatch) =>{
     const res = await fetch(`/api/flashcards/${id}`)
@@ -94,6 +99,18 @@ export const update_flashcard = (flashcard) => async(dispatch) =>{
     }
 }
 
+export const delete_flashcard = (id) => async(dispatch) =>{
+    const res = await fetch(`/api/flashcards/flashcard/${id}`, {
+        method: "DELETE",
+    })
+
+    if(res.ok){
+        dispatch(deleteFlashcard(id))
+    } else {
+        return "ERROR AT DELETE FLASHCARD THUNK"
+    }
+}
+
 
 // reducer
 const initialState = {};
@@ -120,6 +137,10 @@ const flashcardsReducer = (state = initialState, action) =>{
         case POST_FLASHCARD:
             newState = {...state, [action.flashcard.id]: action.flashcard}
             return newState;
+        case DELETE_FLASHCARD:
+            newState = {...state};
+            delete newState[action.flashcard_id]
+            return newState
         default:
             return state
     }

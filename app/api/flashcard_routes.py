@@ -46,3 +46,11 @@ def update_flashcard(id):
         db.session.commit()
         return specific_flashcard.to_dict()
     return {"error": validation_errors_to_error_messages(form.errors)}, 401
+
+
+@flashcard_routes.route('/flashcard/<int:id>', methods=["DELETE"])
+def delete_flashcard(id):
+    flashcard = db.session.query(FlashCard).filter(FlashCard.id == id).first()
+    db.session.delete(flashcard)
+    db.session.commit()
+    return "successful delete"
