@@ -29,15 +29,12 @@ const SpecificQuiz = () =>{
                 <p>{quiz?.description}</p>
             </div>
             {sessionUser.id === quiz?.user_id ?
-             <EditQuizForm quiz={quiz}/>
+            <>
+                <EditQuizForm quiz={quiz}/>
+                <button onClick={handleClick}>DELETE QUIZ</button>
+                <NewFlashcardForm/>
+            </>
             : <></>}
-            {sessionUser.id === quiz?.user_id ?
-            <button onClick={handleClick}>DELETE QUIZ</button>
-            : <></>}
-            {sessionUser.id === quiz?.user_id?
-            <NewFlashcardForm/>
-            : <></>
-            }
         </>
     )
 }
