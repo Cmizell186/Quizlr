@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { update_flashcard } from "../../store/flashcards";
 import Popup from "reactjs-popup";
+import "./form.css"
 
 const EditFlashcardForm = ({flashcard}) =>{
     // react hooks
@@ -46,8 +47,9 @@ const EditFlashcardForm = ({flashcard}) =>{
         <>
             <button onClick={openModal}>Edit Flashcard</button>
             <Popup open={open} modal>
-                <form className="new-flashcard-form" onSubmit={e => handleSubmit(e)}>
+                <form className="edit-flashcard-form" onSubmit={e => handleSubmit(e)}>
                     <input
+                        id="edit-front"
                         type='text'
                         name='front'
                         placeholder="Flashcard Question"
@@ -55,17 +57,18 @@ const EditFlashcardForm = ({flashcard}) =>{
                         onChange={e => setFront(e.target.value)}
                     />
                     <input
+                        id="edit-back"
                         type='text'
                         name='back'
                         placeholder="Flashcard Answer"
                         value={back}
                         onChange={e => setBack(e.target.value)}
                     />
-                    <button>Confirm Edit</button>
+                    <button id="confirm-edit-flashcard">Confirm Edit</button>
                     {errors &&
                     <div>
                         {errors.map((error, inx) =>(
-                            <div key={inx}>{error}</div>
+                            <div key={inx} style={{color:"red"}}>{error}</div>
                         ))}
                     </div>
                     }
