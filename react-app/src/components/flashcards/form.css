@@ -1,0 +1,36 @@
+.edit-flashcard-form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-front{
+    width: 50%;
+    height: 3vh;
+}
+#edit-back{
+    width: 50%;
+    height: 3vh;
+}
+
+
+.new-flashcard-form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-front{
+    width: 50%;
+    height: 3vh;
+}
+#new-back{
+    width: 50%;
+    height: 3vh;
+}

@@ -49,6 +49,7 @@ const NewFlashcardForm = () =>{
             <Popup open={open} modal>
                 <form className="new-flashcard-form" onSubmit={e => handleSubmit(e)}>
                     <input
+                        id="new-front"
                         type='text'
                         name='front'
                         placeholder="Flashcard Question"
@@ -56,6 +57,7 @@ const NewFlashcardForm = () =>{
                         onChange={e => setFront(e.target.value)}
                     />
                     <input
+                        id="new-back"
                         type='text'
                         name='back'
                         placeholder="Flashcard Answer"
@@ -66,7 +68,7 @@ const NewFlashcardForm = () =>{
                     {errors &&
                     <div>
                         {errors.map((error, inx) =>(
-                            <div key={inx}>{error}</div>
+                            <div key={inx} style={{color:"red"}}>{error}</div>
                         ))}
                     </div>
                     }
