@@ -11,8 +11,18 @@ const getFlashcards = (flashcards) =>({
     flashcards
 })
 
+const getOneFlashcard = (flashcard) =>({
+    type: GET_ONE_FLASHCARD,
+    flashcard
+})
+
 const createNewFlashcard = (flashcard) =>({
     type: POST_FLASHCARD,
+    flashcard
+})
+
+const editFlashcard = (flashcard) =>({
+    type: EDIT_FLASHCARD,
     flashcard
 })
 
@@ -23,6 +33,16 @@ export const get_all_flashcards = (id) => async(dispatch) =>{
     if(res.ok){
         const flashcards = await res.json()
         dispatch(getFlashcards(flashcards.flashcards))
+    }
+}
+
+export const get_one_flashcard = (id) => async(dispatch) =>{
+    const res = await fetch(`/api/flashcards/flashcard/${id}`)
+
+    if(res.ok){
+        const flashcard = await res.json()
+        console.log(flashcard)
+        dispatch(getOneFlashcard(flashcard.flashcard))
     }
 }
 
@@ -50,6 +70,30 @@ export const post_new_flashcard = (flashcard, id) => async(dispatch) =>{
     }
 }
 
+export const update_flashcard = (flashcard) => async(dispatch) =>{
+    const res = await fetch (`/api/flashcards/flashcard/${flashcard.id}`, {
+        method: "PUT",
+        headers: {
+            "Accept": 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(flashcard)
+    })
+
+    if (res.ok){
+        const flashcard = await res.json()
+        dispatch(editFlashcard(flashcard))
+        return flashcard
+    } else if (res.status < 500){
+        const data = await res.json()
+        if(data.error){
+            return data.error
+        }
+    } else {
+        return "ERROR AT UPDATE THUNK FOR FLASHCARDS!"
+    }
+}
+
 
 // reducer
 const initialState = {};
@@ -61,6 +105,18 @@ const flashcardsReducer = (state = initialState, action) =>{
             newState = {};
             action.flashcards.forEach((flashcard) => (newState[flashcard.id] = flashcard))
             return newState;
+        case GET_ONE_FLASHCARD:
+            return {
+                [action.flashcard.id]: {
+                    ...state[action.flashcard.id],
+                    ...action.flashcard
+                }
+            }
+        case EDIT_FLASHCARD:
+            return {
+                ...state,
+                [action.flashcard.id]: action.flashcard
+            }
         case POST_FLASHCARD:
             newState = {...state, [action.flashcard.id]: action.flashcard}
             return newState;
