@@ -51,6 +51,7 @@ const NewQuizForm = () => {
             <Popup open={open} modal>
                 <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
                     <input
+                    id='new-title'
                     type='text'
                     name='title'
                     placeholder='Quiz Title'
@@ -58,6 +59,7 @@ const NewQuizForm = () => {
                     value={title}
                     />
                     <input
+                    id='new-description'
                     type='text'
                     name='description'
                     placeholder='Description of quiz'
@@ -68,7 +70,7 @@ const NewQuizForm = () => {
                     {errors &&
                     <div>
                         {errors.map((error, inx) =>(
-                            <div key={inx}>{error}</div>
+                            <div key={inx} style={{color:"red"}}>{error} </div>
                         ))}
                     </div>
                     }
