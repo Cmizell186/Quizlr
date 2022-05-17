@@ -37,7 +37,7 @@ const FlashCardList = () => {
                 />
             </div>
             {flashcards.map(flashcard =>(
-                <div key={flashcard?.id}>
+                <div key={flashcard?.id} className="flashcard-individual">
                     <p>{flashcard?.front}</p>
                     <p>{flashcard?.back}</p>
                     {sessionUser?.id === flashcard?.user_id ?
