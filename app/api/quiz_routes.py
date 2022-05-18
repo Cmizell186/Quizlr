@@ -2,7 +2,7 @@ from crypt import methods
 from flask import Blueprint, request, session
 from flask_login import current_user
 from app.api.auth_routes import validation_errors_to_error_messages
-from app.models import db, Quiz, subject
+from app.models import db, Quiz, FlashCard
 from app.forms.quiz_form import NewQuizForm
 from app.forms.edit_quiz_form import EditQuiz
 
@@ -31,6 +31,14 @@ def post_quizzes(id):
             subject_id = id,
         )
         db.session.add(quiz)
+        db.session.commit()
+        new_quiz_flashcard = FlashCard(
+            front = "Default Card! Edit this flashcard or create new ones!",
+            back = "Welcome to the back of your card 😎 Answers will go back here",
+            user_id = current_user.id,
+            quiz_id = quiz.id
+        )
+        db.session.add(new_quiz_flashcard)
         db.session.commit()
         return quiz.to_dict()
     return {"error": validation_errors_to_error_messages(form.errors)}, 401
