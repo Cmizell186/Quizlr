@@ -46,7 +46,6 @@ export const get_one_flashcard = (id) => async(dispatch) =>{
 
     if(res.ok){
         const flashcard = await res.json()
-        console.log(flashcard)
         dispatch(getOneFlashcard(flashcard.flashcard))
     }
 }

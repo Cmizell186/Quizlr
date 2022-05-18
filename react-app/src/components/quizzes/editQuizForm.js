@@ -31,7 +31,6 @@ const EditQuizForm = ({quiz}) =>{
 
         const data = await dispatch(update_quiz(editQuiz))
         if(Array.isArray(data)){
-            console.log(data)
             return setErrors(data)
         } else {
             setErrors([]);

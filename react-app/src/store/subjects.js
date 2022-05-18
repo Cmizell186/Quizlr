@@ -13,7 +13,6 @@ export const get_all_subjects = () => async(dispatch) =>{
 
     if (res.ok){
         const subjects = await res.json();
-        console.log(subjects)
         dispatch(getSubject(subjects));
     } else {
         return "ERROR AT SUBJECTSLIST THUNK"

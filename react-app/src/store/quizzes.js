@@ -37,7 +37,6 @@ export const get_all_quizzes = (id) => async(dispatch) =>{
 
     if(res.ok){
         const quizzes = await res.json();
-        // console.log(quizzes.quizzes)
         dispatch(getQuizzes(quizzes))
     }
 }
@@ -47,7 +46,6 @@ export const get_one_quiz = (id) => async(dispatch) =>{
 
     if(res.ok){
         const quiz = await res.json();
-        // console.log(quiz.quiz, "FROM REACT THUNK");
         dispatch(getOneQuiz(quiz.quiz));
     }
 }
