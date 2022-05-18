@@ -12,6 +12,7 @@ function User() {
     const emailSplit = user?.email?.split('@')[0]
     const str1 = emailSplit?.charAt(0).toUpperCase()
     const str2 = emailSplit?.slice(1)
+    const emailName = `${str1 + str2}`;
 
 
     useEffect(() => {
@@ -33,7 +34,7 @@ function User() {
         <div className='user-page-container'>
             <div className='user-info'>
                 <h3>{user?.username}</h3>
-                <p className='user-email'>{str1 + str2}</p>
+                <p className='user-email'>{emailName}</p>
             </div>
             <div className='user-quizzes'>
                 {userQuizzes?.map((quiz) =>(

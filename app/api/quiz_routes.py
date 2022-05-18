@@ -13,6 +13,11 @@ def get_quizzes(id):
     quizzes = Quiz.query.filter(Quiz.subject_id == id).all()
     return {"quizzes": [quiz.to_dict() for quiz in quizzes]}
 
+@quiz_routes.route('/')
+def get_all_quizzes():
+    quizzes = Quiz.query.all()
+    return {"quizzes": [quiz.to_dict() for quiz in quizzes]}
+
 @quiz_routes.route('/quiz/<int:id>', methods=["GET"])
 def get_specific_quiz(id):
     quiz = Quiz.query.filter(Quiz.id == id).first()
