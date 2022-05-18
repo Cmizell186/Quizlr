@@ -23,7 +23,24 @@
 }
 .home-button:hover{
     transition: none;
-    border-bottom: 5px solid blue;
+    border-bottom: 5px solid #7b89c9;
+}
+.profile-button{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 2px;
+}
+.profile-button:hover{
+    transition: none;
+    border-bottom: 5px solid #7b89c9;
+}
+
+.subjects-button{
+    padding: 2px;
+}
+.subjects-button:hover{
+    transition: none;
+    border-bottom: 5px solid #7b89c9;
 }
 
 .right-content{

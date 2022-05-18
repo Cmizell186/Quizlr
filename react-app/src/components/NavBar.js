@@ -11,14 +11,16 @@ const NavBar = () => {
     <nav className='nav-bar'>
       <div className='content-left'>
         <div>
+        <NavLink to='/' exact={true} activeClassName='active'>
           <h1 className='quizlr-nav-title'>Quizlr</h1>
+        </NavLink>
         </div>
         <div className='home-button'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </div>
-          <div>
+          <div className='subjects-button'>
           <NavLink to='/subjects' exact={true} activeClassName='active'>
             Subjects
           </NavLink>
@@ -27,9 +29,9 @@ const NavBar = () => {
         <div className='right-content'>
         {sessionUser ?
         <>
-          <div>
+          <div className='profile-button'>
             <NavLink to={`/users/${sessionUser.id}`}>
-              Library
+              Profile
             </NavLink>
           </div>
           <div>
