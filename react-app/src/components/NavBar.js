@@ -25,6 +25,19 @@ const NavBar = () => {
         </div>
       </div>
         <div className='right-content'>
+        {sessionUser ?
+        <>
+          <div>
+            <NavLink to={`/users/${sessionUser.id}`}>
+              Library
+            </NavLink>
+          </div>
+          <div>
+            <LogoutButton />
+          </div>
+        </>
+        :
+        <>
           <div className='login-nav-button'>
             <NavLink to='/login' exact={true} activeClassName='active'>
               Login
@@ -35,12 +48,7 @@ const NavBar = () => {
               Sign Up
             </NavLink>
           </div>
-        {sessionUser ?
-        <div>
-          <LogoutButton />
-        </div>
-        :
-        <></>}
+        </>}
         </div>
     </nav>
   );
