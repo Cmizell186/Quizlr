@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const SubjectList = () =>{
     const dispatch = useDispatch();
     const subjects = useSelector(state => Object.values(state.subjects));
-    console.log(subjects)
 
     useEffect(() =>{
         dispatch(get_all_subjects())
