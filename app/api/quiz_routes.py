@@ -33,8 +33,8 @@ def post_quizzes(id):
         db.session.add(quiz)
         db.session.commit()
         new_quiz_flashcard = FlashCard(
-            front = "Default Card!",
-            back = "Welcome to the back of your card :)",
+            front = "Default Card! Edit this flashcard or create new ones!",
+            back = "Welcome to the back of your card 😎 Answers will go back here",
             user_id = current_user.id,
             quiz_id = quiz.id
         )
