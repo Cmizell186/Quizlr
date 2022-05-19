@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top:55%;
+    top:53%;
     left: 25%;
     width: 400px;
     height: 180px;
@@ -27,4 +27,100 @@
 
 .splash-description{
     word-wrap: break-word;
+}
+
+
+/* splash page content */
+.splash-page-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.students-who-use{
+    font-size: 36px;
+    color: #303545;
+}
+
+#id90em{
+    background-image: url(https://assets.quizlet.com/a/j/dist/app/i/prismic/scribble.6c75e80726e3401.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: var(--typography-heading-weight);
+    letter-spacing: normal;
+    line-height: 1.25;
+    padding: 2.1875rem;
+}
+
+
+.flashcards-on-area{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.flashcards-splash-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 350px;
+    margin-left: 100px;
+}
+
+#flashcard-info-h2{
+    color: #303545;
+    font-size: 32px;
+}
+
+#flashcard-info-p{
+    color: #303545;
+    font-size: 20px;
+}
+
+
+.jam-on-area{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.jam-image img{
+    border-radius: 15px;
+}
+
+.jam-splash-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 350px;
+    margin-right: 100px;
+}
+
+.bottom-splash-page{
+    margin-bottom: -5px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: 50px;
+    background-color: #f6f7fb;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-links{
+    display: flex;
+    flex-direction: row;
+}
+.my-links a{
+    margin-left: 15px;
+}
+.my-links p{
+    margin: 0;
+    margin-right: 10px;
 }
