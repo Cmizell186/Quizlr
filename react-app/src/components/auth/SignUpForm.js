@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import Popup from 'reactjs-popup';
+import "./index.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -12,14 +14,26 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  // for popup modal
+  const [open, setOpen] = useState(false);
+
   const onSignUp = async (e) => {
     e.preventDefault();
 
       const data = await dispatch(signUp(username, email, password, repeatPassword));
-      if (data) {
+      if (Array.isArray(data)) {
         setErrors(data)
+      } else {
+        setErrors([]);
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setRepeatPassword("");
+        setOpen();
       }
   };
+
+  const openModal = () => setOpen(!open);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -42,51 +56,61 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div>
+      <a onClick={openModal} className="login-modal-open-thing">Sign Up</a>
+      <Popup open={open} modal>
+        <p style={{color:"black"}} className="login-modal-label">Sign Up</p>
+        <form onSubmit={onSignUp}>
+          <div className='email-login-div'>
+            <label style={{color:"#FFCD1F"}} className="login-modal-label">User Name</label>
+            <input
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+              className="login-input"
+              ></input>
+          </div>
+          <div className='email-login-div'>
+            <label style={{color:"#FFCD1F"}} className="login-modal-label">Email</label>
+            <input
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+              className="login-input"
+              ></input>
+          </div>
+          <div className='password-login-div'>
+            <label style={{color:"#FFCD1F"}} className="login-modal-label">Password</label>
+            <input
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+              className="login-input"
+              ></input>
+          </div>
+          <div className='password-login-div'>
+            <label style={{color:"#FFCD1F"}} className="login-modal-label">Repeat Password</label>
+            <input
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+              className="login-input"
+              ></input>
+          </div>
+          <button type='submit' id="confirm-edit-flashcard" className='login-modal-btn'>Sign Up</button>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind} style={{color:"red"}}>{error}</div>
+              ))}
+          </div>
+        </form>
+      </Popup>
+    </div>
   );
 };
 
