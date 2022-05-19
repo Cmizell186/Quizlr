@@ -2,3 +2,9 @@
     overflow-wrap: break-word;
     width: 560px;
 }
+
+.flashcardList-main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

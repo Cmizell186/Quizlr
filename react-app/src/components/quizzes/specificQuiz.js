@@ -5,6 +5,7 @@ import { get_one_quiz, delete_quiz } from "../../store/quizzes";
 import EditQuizForm from "./editQuizForm";
 import NewFlashcardForm from "../flashcards/newFlashcardForm";
 import FlashCardList from "../flashcards/flashcardsList";
+import "./index.css"
 
 
 const SpecificQuiz = () =>{
@@ -24,22 +25,22 @@ const SpecificQuiz = () =>{
         return history.push(`/subject/${quiz.subject_id}`)
     }
     return (
-        <>
-            <div>
+        <div className="specific-quiz-div">
+            <div className="specific-quiz-info">
                 <h1>{quiz?.title.slice(0,50)}</h1>
-                <p>{quiz?.description}</p>
             </div>
             {sessionUser.id === quiz?.user_id ?
-            <>
+            <div className="options-user-div">
                 <EditQuizForm quiz={quiz}/>
-                <button onClick={handleClick}>DELETE QUIZ</button>
+                <div onClick={handleClick} className="fa-solid fa-trash-can"></div>
                 <NewFlashcardForm/>
-            </>
+            </div>
             : <></>}
             <div>
+            <p>{quiz?.description}</p>
                 <FlashCardList/>
             </div>
-        </>
+        </div>
     )
 }
 

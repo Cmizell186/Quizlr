@@ -28,7 +28,7 @@ const FlashCardList = () => {
 
 
     return (
-        <>
+        <div className="flashcardList-main-div">
             <div className="flashcard-carousel">
                 <FlashcardArray
                 cards={flashcards}
@@ -51,7 +51,7 @@ const FlashCardList = () => {
                      : <></>}
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 

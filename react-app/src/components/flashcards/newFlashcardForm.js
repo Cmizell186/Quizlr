@@ -45,7 +45,7 @@ const NewFlashcardForm = () =>{
 
     return (
         <>
-            <button onClick={openModal}>New Flashcard</button>
+            <div onClick={openModal}>Add New Flashcard</div>
             <Popup open={open} modal>
                 <form className="new-flashcard-form" onSubmit={e => handleSubmit(e)}>
                     <input
