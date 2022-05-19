@@ -8,3 +8,38 @@
     border-bottom: 5px solid #7b89c9;
     cursor: pointer;
 }
+
+.login-modal-open-thing:hover{
+    cursor: pointer;
+}
+
+.email-login-div{
+    display: flex;
+    flex-direction: column;
+}
+.password-login-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-modal-div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.login-modal-btn{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.login-input{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.login-modal-label{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
