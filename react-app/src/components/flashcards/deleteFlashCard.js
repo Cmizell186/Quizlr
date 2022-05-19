@@ -12,7 +12,7 @@ const DeleteFlashCard = ({flashcard}) => {
     return (
         <>
             <div>
-                <button onClick={handleClick}>Delete Flash Card</button>
+                <div onClick={handleClick} className="fa-solid fa-trash-can"></div>
             </div>
         </>
     )

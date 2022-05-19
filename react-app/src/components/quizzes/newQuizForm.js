@@ -50,6 +50,7 @@ const NewQuizForm = () => {
             <h4 onClick={openModal} className="h4-create-new-quiz">Create New Quiz</h4>
             <Popup open={open} modal>
                 <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
+                <p style={{color:"black"}}>Create Quiz</p>
                     <input
                     id='new-title'
                     type='text'
@@ -66,7 +67,7 @@ const NewQuizForm = () => {
                     onChange={e => setDescription(e.target.value)}
                     value={description}
                     />
-                    <button type='submit'> Create New </button>
+                    <button type='submit' id="confirm-edit-flashcard"> Create New </button>
                     {errors &&
                     <div>
                         {errors.map((error, inx) =>(

@@ -37,6 +37,9 @@ const FlashCardList = () => {
                 onCardChange={(cardNumber) => setCardNumber(cardNumber)}
                 />
             </div>
+            <div className="amount-flashcards">
+                <p>{flashcards?.length} Flashcards</p>
+            </div>
             {flashcards.map(flashcard =>(
                 <div key={flashcard?.id} className="flashcard-individual">
                     <div className="flashcard-front-back-div">
