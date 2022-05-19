@@ -8,3 +8,51 @@
     flex-direction: column;
     align-items: center;
 }
+
+.new-flashcard-btn{
+    width: 142px;
+    padding: 15px;
+    background-color: #4255ff;
+    color: white;
+    border-radius: 10px;
+}
+.new-flashcard-btn:hover{
+    transition: .2s;
+    cursor: pointer;
+    background-color: #423ed8;
+}
+
+
+.flashcard-individual{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.flashcard-front-back-div{
+    display: flex;
+    flex-direction: row;
+    overflow-wrap: break-word;
+    font-size: 20px;
+}
+.flashcard-edit-delete-div{
+    display: flex;
+    flex-direction: column;
+}
+.front-flashcard{
+    width: 250px;
+    margin-right: 15px;
+    border-right: 1px solid lightgray;
+}
+.back-flashcard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    overflow-wrap: break-word;
+    height: 30px;
+}

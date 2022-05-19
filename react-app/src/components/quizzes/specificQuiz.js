@@ -31,13 +31,13 @@ const SpecificQuiz = () =>{
             </div>
             {sessionUser.id === quiz?.user_id ?
             <div className="options-user-div">
+                <NewFlashcardForm/>
                 <EditQuizForm quiz={quiz}/>
                 <div onClick={handleClick} className="fa-solid fa-trash-can"></div>
-                <NewFlashcardForm/>
             </div>
             : <></>}
             <div>
-            <p>{quiz?.description}</p>
+            <p><strong>about:</strong> {quiz?.description}</p>
                 <FlashCardList/>
             </div>
         </div>

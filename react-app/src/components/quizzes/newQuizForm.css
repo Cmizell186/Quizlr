@@ -79,3 +79,8 @@
   background-color: rgba(255, 205, 31, .6);
   color: #181818;
 }
+
+.fa-pen:hover{
+  cursor: pointer;
+  color: #ffcd1f;
+}

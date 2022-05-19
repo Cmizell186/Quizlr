@@ -39,15 +39,17 @@ const FlashCardList = () => {
             </div>
             {flashcards.map(flashcard =>(
                 <div key={flashcard?.id} className="flashcard-individual">
-                    <p>{flashcard?.front}</p>
-                    <p>{flashcard?.back}</p>
+                    <div className="flashcard-front-back-div">
+                        <p className="front-flashcard">{flashcard?.front}</p>
+                        <p className="back-flashcard">{flashcard?.back}</p>
+                    </div>
                     {sessionUser?.id === flashcard?.user_id ?
-                    <>
+                    <div className="flashcard-edit-delete-div">
                         <EditFlashcardForm flashcard={flashcard}/>
                         <div onClick={() => handleClick(cardNumber)}>
                             <DeleteFlashCard flashcard={flashcard}/>
                         </div>
-                    </>
+                    </div>
                      : <></>}
                 </div>
             ))}
