@@ -66,7 +66,7 @@ const NewFlashcardForm = () =>{
                         value={back}
                         onChange={e => setBack(e.target.value)}
                     />
-                    <button>submit new flashcard!</button>
+                    <button type="submit" id="confirm-edit-flashcard">submit new flashcard!</button>
                     {errors &&
                     <div>
                         {errors.map((error, inx) =>(

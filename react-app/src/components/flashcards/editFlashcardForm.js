@@ -9,8 +9,8 @@ const EditFlashcardForm = ({flashcard}) =>{
     const dispatch = useDispatch();
 
     // useStates
-    const [front, setFront] = useState("");
-    const [back, setBack] = useState("");
+    const [front, setFront] = useState(flashcard?.front);
+    const [back, setBack] = useState(flashcard?.back    );
     const [errors, setErrors] = useState([]);
     const [open, setOpen] = useState(false);
 
@@ -45,9 +45,10 @@ const EditFlashcardForm = ({flashcard}) =>{
 
     return (
         <>
-            <button onClick={openModal}>Edit Flashcard</button>
+            <div onClick={openModal} className="fa-solid fa-pen"></div>
             <Popup open={open} modal>
                 <form className="edit-flashcard-form" onSubmit={e => handleSubmit(e)}>
+                    <h4 style={{color:"black"}}>Edit Flashcard</h4>
                     <input
                         id="edit-front"
                         type='text'
@@ -64,7 +65,7 @@ const EditFlashcardForm = ({flashcard}) =>{
                         value={back}
                         onChange={e => setBack(e.target.value)}
                     />
-                    <button id="confirm-edit-flashcard">Confirm Edit</button>
+                    <button type="submit" id="confirm-edit-flashcard">Confirm Edit</button>
                     {errors &&
                     <div>
                         {errors.map((error, inx) =>(

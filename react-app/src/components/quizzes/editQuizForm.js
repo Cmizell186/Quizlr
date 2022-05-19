@@ -62,7 +62,7 @@ const EditQuizForm = ({quiz}) =>{
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                 />
-                <button type="submit">edit quiz confirm</button>
+                <button type="submit" id="confirm-edit-flashcard">Confirm Edit</button>
                 {errors &&
                     <div>
                         {errors.map((error, inx) =>(
