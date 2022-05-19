@@ -1,0 +1,26 @@
+.subject-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 50px;
+}
+
+.subject-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.subject-title.h4{
+    color: #939bb4;
+}
+
+.menu-item{
+    font-size: 20px;
+}
+.menu-item:hover{
+    transition: .2s;
+    color: #ffcd1f;
+}

@@ -16,7 +16,7 @@
 .welcome-quizlr h1{
     color: #ffcd1f;
 }
-.welcome-quizlr h3{
+.welcome-quizlr > h3{
     color: #939bb4;
 }
 

@@ -14,8 +14,6 @@
     width: 30%;
     height: 200px;
     padding: 2px 20px;
-
-    -webkit-animation: anvil 0.1s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
   }
 
   .popup-overlay {
@@ -71,4 +69,18 @@
 #new-description{
     width: 50%;
     height: 3vh;
+}
+
+.h4-create-new-quiz{
+  color: white;
+  width: 130px;
+  background-color: #4255ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.h4-create-new-quiz:hover{
+  transition: .5s;
+  cursor: pointer;
+  background-color: rgba(255, 205, 31, .6);
+  color: #181818;
 }

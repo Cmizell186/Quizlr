@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import Popup from 'reactjs-popup';
 import { useSelector } from 'react-redux';
 import "./NavBar.css"
+import SubjectList from './subjects/subjects';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -18,11 +20,6 @@ const NavBar = () => {
         <div className='home-button'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
-          </NavLink>
-        </div>
-          <div className='subjects-button'>
-          <NavLink to='/subjects' exact={true} activeClassName='active'>
-            Subjects
           </NavLink>
         </div>
       </div>
@@ -43,6 +40,11 @@ const NavBar = () => {
           <div className='login-nav-button'>
             <NavLink to='/login' exact={true} activeClassName='active'>
               Login
+            </NavLink>
+          </div>
+          <div className='demo-button'>
+            <NavLink to="/demo">
+              Demo
             </NavLink>
           </div>
           <div className='signup-nav-button'>

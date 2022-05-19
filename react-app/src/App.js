@@ -12,11 +12,11 @@ import { authenticate } from './store/session';
 // import of my stuff!
 import SubjectList from './components/subjects/subjects';
 import QuizList from './components/quizzes/quizzesList';
-import NewQuizForm from './components/quizzes/newQuizForm';
 import SpecificQuiz from './components/quizzes/specificQuiz';
 import SplashPage from './components/splashpage/splashPage';
 import FlashCardList from './components/flashcards/flashcardsList';
 import HomePage from './components/homePage.js/homePage';
+import Demo from './components/auth/demo';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,16 +57,18 @@ function App() {
           <SubjectList />
         </ProtectedRoute>
         <ProtectedRoute path='/subject/:subjectId'>
-          <NewQuizForm/>
           <QuizList/>
         </ProtectedRoute>
         <ProtectedRoute path='/quiz/:quizId'>
           <SpecificQuiz/>
           <FlashCardList />
         </ProtectedRoute>
-        <ProtectedRoute>
+        <ProtectedRoute path="/home">
           <HomePage />
         </ProtectedRoute>
+        <Route path="/demo">
+          <Demo/>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
