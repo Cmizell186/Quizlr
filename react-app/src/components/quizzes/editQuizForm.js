@@ -44,9 +44,10 @@ const EditQuizForm = ({quiz}) =>{
 
     return (
         <>
-            <button onClick={openModal}>Edit Quiz</button>
+            <div onClick={openModal} className="fa-solid fa-pen"></div>
             <Popup open={open} modal>
             <form className="edit-quiz-form"  onSubmit={e => handleSubmit(e)}>
+                <p style={{color:"black"}}>Edit Quiz</p>
                 <input
                     id="edit-title"
                     type='text'

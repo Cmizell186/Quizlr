@@ -4,6 +4,8 @@ import { useParams, useHistory } from "react-router-dom";
 import { get_one_quiz, delete_quiz } from "../../store/quizzes";
 import EditQuizForm from "./editQuizForm";
 import NewFlashcardForm from "../flashcards/newFlashcardForm";
+import FlashCardList from "../flashcards/flashcardsList";
+import "./index.css"
 
 
 const SpecificQuiz = () =>{
@@ -23,19 +25,22 @@ const SpecificQuiz = () =>{
         return history.push(`/subject/${quiz.subject_id}`)
     }
     return (
-        <>
-            <div>
+        <div className="specific-quiz-div">
+            <div className="specific-quiz-info">
                 <h1>{quiz?.title.slice(0,50)}</h1>
-                <p>{quiz?.description}</p>
             </div>
             {sessionUser.id === quiz?.user_id ?
-            <>
-                <EditQuizForm quiz={quiz}/>
-                <button onClick={handleClick}>DELETE QUIZ</button>
+            <div className="options-user-div">
                 <NewFlashcardForm/>
-            </>
+                <EditQuizForm quiz={quiz}/>
+                <div onClick={handleClick} className="fa-solid fa-trash-can"></div>
+            </div>
             : <></>}
-        </>
+            <div>
+            <p><strong>about:</strong> {quiz?.description}</p>
+                <FlashCardList/>
+            </div>
+        </div>
     )
 }
 

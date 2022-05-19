@@ -1,13 +1,21 @@
 /* TODO Add site wide styles */
 @font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+    font-family: quiz;
+    src: url("./public/fonts/HurmeGeometricSans2.otf");
+    /* src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap'); */
+}
+@font-face {
+    font-family: quiz-bold;
+    src: url("./public/fonts/HurmeGeometricSans2\ Bold.otf");
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: quiz;
     background-color: #f5f5f5;
     overflow-x: hidden;
+}
+h1{
+    font-family: quiz-bold;
 }
 
 a{

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { post_new_flashcard } from "../../store/flashcards";
 import Popup from "reactjs-popup";
+import "./flashcardList.css"
 
 const NewFlashcardForm = () =>{
     // react hooks
@@ -45,9 +46,10 @@ const NewFlashcardForm = () =>{
 
     return (
         <>
-            <button onClick={openModal}>New Flashcard</button>
+            <div onClick={openModal} className="new-flashcard-btn">Add New Flashcard</div>
             <Popup open={open} modal>
                 <form className="new-flashcard-form" onSubmit={e => handleSubmit(e)}>
+                    <p style={{color:"black"}}>Create New Flashcard</p>
                     <input
                         id="new-front"
                         type='text'

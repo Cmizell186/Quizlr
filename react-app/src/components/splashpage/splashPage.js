@@ -48,8 +48,8 @@ const SplashPage = () =>{
             <div className="bottom-splash-page">
                 <div className="my-links">
                     <p>Created by Christopher Mizell</p>
-                    <a href="https://github.com/Cmizell186">Github</a>
-                    <a href="https://www.linkedin.com/in/christopher-mizell-4b21a4174/">LinkedIn</a>
+                    <a href="https://github.com/Cmizell186" className='fa-brands fa-github fa-2x'></a>
+                    <a href="https://www.linkedin.com/in/christopher-mizell-4b21a4174/" className='fa-brands fa-linkedin fa-2x'></a>
                 </div>
             </div>
         </>

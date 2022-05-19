@@ -5,6 +5,7 @@ import { get_all_flashcards } from "../../store/flashcards";
 import { FlashcardArray } from "react-quizlet-flashcard";
 import EditFlashcardForm from "./editFlashcardForm";
 import DeleteFlashCard from "./deleteFlashCard";
+import "./flashcardList.css"
 
 const FlashCardList = () => {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const FlashCardList = () => {
 
 
     return (
-        <>
+        <div className="flashcardList-main-div">
             <div className="flashcard-carousel">
                 <FlashcardArray
                 cards={flashcards}
@@ -38,19 +39,21 @@ const FlashCardList = () => {
             </div>
             {flashcards.map(flashcard =>(
                 <div key={flashcard?.id} className="flashcard-individual">
-                    <p>{flashcard?.front}</p>
-                    <p>{flashcard?.back}</p>
+                    <div className="flashcard-front-back-div">
+                        <p className="front-flashcard">{flashcard?.front}</p>
+                        <p className="back-flashcard">{flashcard?.back}</p>
+                    </div>
                     {sessionUser?.id === flashcard?.user_id ?
-                    <>
+                    <div className="flashcard-edit-delete-div">
                         <EditFlashcardForm flashcard={flashcard}/>
                         <div onClick={() => handleClick(cardNumber)}>
                             <DeleteFlashCard flashcard={flashcard}/>
                         </div>
-                    </>
+                    </div>
                      : <></>}
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 

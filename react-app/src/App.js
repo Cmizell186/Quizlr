@@ -14,7 +14,6 @@ import SubjectList from './components/subjects/subjects';
 import QuizList from './components/quizzes/quizzesList';
 import SpecificQuiz from './components/quizzes/specificQuiz';
 import SplashPage from './components/splashpage/splashPage';
-import FlashCardList from './components/flashcards/flashcardsList';
 import HomePage from './components/homePage.js/homePage';
 import Demo from './components/auth/demo';
 
@@ -61,7 +60,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/quiz/:quizId'>
           <SpecificQuiz/>
-          <FlashCardList />
         </ProtectedRoute>
         <ProtectedRoute path="/home">
           <HomePage />
