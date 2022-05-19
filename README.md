@@ -1,8 +1,11 @@
 <h1 align="center">Quizlr📚</h1>
 
 <h5 align="center">  By:  <a href="https://github.com/cmizell186">Christopher Mizell</a> - <a href="https://quizzlerapp.herokuapp.com/"><i>Live site</i></h5>
+
 ![image](https://user-images.githubusercontent.com/90157662/169375543-0ac24d49-0fea-4f4b-86ca-00e9543d25bf.png)
+   
 ![image](https://user-images.githubusercontent.com/90157662/169375571-03a6494f-7155-4ce7-9bb0-35f9c85c34f2.png)
+   
 ![image](https://user-images.githubusercontent.com/90157662/169375790-4b33d9f2-8776-47a8-bf0b-125e87f7b6be.png)
 
 
