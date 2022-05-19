@@ -25,7 +25,7 @@ const SpecificQuiz = () =>{
     return (
         <>
             <div>
-                <h1>{quiz?.title}</h1>
+                <h1>{quiz?.title.slice(0,50)}</h1>
                 <p>{quiz?.description}</p>
             </div>
             {sessionUser.id === quiz?.user_id ?

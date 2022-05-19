@@ -72,3 +72,17 @@
     width: 50%;
     height: 3vh;
 }
+
+.h4-create-new-quiz{
+  color: white;
+  width: 130px;
+  background-color: #4255ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.h4-create-new-quiz:hover{
+  transition: .5s;
+  cursor: pointer;
+  background-color: rgba(255, 205, 31, .6);
+  color: #181818;
+}

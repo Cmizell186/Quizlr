@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { get_all_quizzes } from "../../store/quizzes";
 import { Link, useParams } from 'react-router-dom';
 import { get_one_subject } from "../../store/subjects";
+import NewQuizForm from "./newQuizForm";
 
 
 const QuizList = () =>{
@@ -19,7 +20,8 @@ const QuizList = () =>{
 
     return (
         <div className="user-page-container">
-            <h1>{subject?.subject}</h1>
+            <h1 style={{color:"rgb(66, 85, 255)"}}>{subject?.subject}</h1>
+            <NewQuizForm />
             <div className='user-quizzes'>
                 {quizzes?.map((quiz) =>(
                     <div key={quiz?.id}  className="quiz-info-area">

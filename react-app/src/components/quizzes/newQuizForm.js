@@ -47,7 +47,7 @@ const NewQuizForm = () => {
 
     return (
         <>
-            <button onClick={openModal}>Open modal</button>
+            <h4 onClick={openModal} className="h4-create-new-quiz">Create New Quiz</h4>
             <Popup open={open} modal>
                 <form className='new-quiz-form' onSubmit={e => handleSubmit(e)}>
                     <input
