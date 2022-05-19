@@ -16,6 +16,7 @@ import NewQuizForm from './components/quizzes/newQuizForm';
 import SpecificQuiz from './components/quizzes/specificQuiz';
 import SplashPage from './components/splashpage/splashPage';
 import FlashCardList from './components/flashcards/flashcardsList';
+import HomePage from './components/homePage.js/homePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,7 +39,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          {sessionUser ? <Redirect to={`/users/${sessionUser.id}`} /> : <SplashPage />}
+          {sessionUser ? <Redirect to={`/home`} /> : <SplashPage />}
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -62,6 +63,9 @@ function App() {
         <ProtectedRoute path='/quiz/:quizId'>
           <SpecificQuiz/>
           <FlashCardList />
+        </ProtectedRoute>
+        <ProtectedRoute>
+          <HomePage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

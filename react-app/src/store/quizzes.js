@@ -41,6 +41,15 @@ export const get_all_quizzes = (id) => async(dispatch) =>{
     }
 }
 
+export const get_quizzes = () => async(dispatch) =>{
+    const res = await fetch(`/api/quizzes/`)
+
+    if(res.ok){
+        const quizzes = await res.json();
+        dispatch(getQuizzes(quizzes))
+    }
+}
+
 export const get_one_quiz = (id) => async(dispatch) =>{
     const res = await fetch(`/api/quizzes/quiz/${id}`)
 
