@@ -4,8 +4,8 @@
 
 ### Table of Contents
 - [Main purpose](#main)
-- [Trips](#trips)
-- [Reviews](#reviews)
+- [Trips](#Quizzes)
+- [Reviews](#Flashcards)
 - [Conclusion](#conclusion)
 
 ## Main
