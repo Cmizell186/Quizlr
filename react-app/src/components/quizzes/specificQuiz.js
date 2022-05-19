@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { get_one_quiz, delete_quiz } from "../../store/quizzes";
 import EditQuizForm from "./editQuizForm";
 import NewFlashcardForm from "../flashcards/newFlashcardForm";
+import FlashCardList from "../flashcards/flashcardsList";
 
 
 const SpecificQuiz = () =>{
@@ -35,6 +36,9 @@ const SpecificQuiz = () =>{
                 <NewFlashcardForm/>
             </>
             : <></>}
+            <div>
+                <FlashCardList/>
+            </div>
         </>
     )
 }

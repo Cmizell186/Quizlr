@@ -1,13 +1,8 @@
-@font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
-}
-
 /* mess with this stuff to change all forms! */
 .popup-content {
     background: #f6f7fb;
     color: rgb(255, 255, 255);
-    font-family: 'Poppins', sans-serif;
+    font-family: quiz;
     font-weight: bold;
     margin: auto;
     border-radius: 10px;

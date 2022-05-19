@@ -5,6 +5,7 @@ import { get_all_flashcards } from "../../store/flashcards";
 import { FlashcardArray } from "react-quizlet-flashcard";
 import EditFlashcardForm from "./editFlashcardForm";
 import DeleteFlashCard from "./deleteFlashCard";
+import "./flashcardList.css"
 
 const FlashCardList = () => {
     const dispatch = useDispatch();

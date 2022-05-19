@@ -1,0 +1,4 @@
+.FlashcardWrapper__item--content > span{
+    overflow-wrap: break-word;
+    width: 560px;
+}
