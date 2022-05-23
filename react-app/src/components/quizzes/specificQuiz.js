@@ -14,6 +14,7 @@ const SpecificQuiz = () =>{
     const sessionUser = useSelector(state => state.session.user)
     const quiz = useSelector(state => Object.values(state.quizzes)[0])
     const {quizId} = useParams()
+    console.log(quiz);
 
 
     useEffect(() =>{
@@ -28,6 +29,7 @@ const SpecificQuiz = () =>{
         <div className="specific-quiz-div">
             <div className="specific-quiz-info">
                 <h1>{quiz?.title.slice(0,50)}</h1>
+                <h2><em>{quiz?.user}</em></h2>
             </div>
             {sessionUser.id === quiz?.user_id ?
             <div className="options-user-div">
