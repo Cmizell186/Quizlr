@@ -10,7 +10,16 @@ def seed_users():
     chris = User(
         username='Chris', email='chris@chris.com', password='chris')
 
-    db.session.add_all([jyl, demo, chris])
+    damian = User(
+        username='juandamianrojas', email='damiantheman@gmail.com', password='damian')
+
+    jared = User(
+        username='Jared', email='jareddd227@gmail.com', password='jared')
+
+    jason = User(
+        username='json', email='json@demo.com', password='jason')
+
+    db.session.add_all([jyl, demo, chris, damian, jared, jason])
 
     db.session.commit()
 
