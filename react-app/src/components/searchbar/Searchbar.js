@@ -1,10 +1,14 @@
 import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { search_quizzes } from "../../store/searchQuizzes";
 
 const SearchBar = () =>{
     const [searchWord, setSearchWord] = useState("");
     const dispatch = useDispatch();
+    const history = useHistory();
+    const searchedQuizzes = useSelector(state => Object.values(state.searchedFor))
+    console.log(searchedQuizzes)
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
@@ -15,6 +19,7 @@ const SearchBar = () =>{
 
         await dispatch(search_quizzes(searchingWords))
         setSearchWord("")
+        history.push("/search", [searchedQuizzes])
     }
 
 

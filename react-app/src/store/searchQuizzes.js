@@ -1,12 +1,12 @@
-import quizReducer from "./quizzes"
-
 // constants
 const SEARCH_QUIZ = 'quizzes/SEARCH_QUIZ'
+
 // actions
 const searchQuiz = (searchedFor) =>({
     type: SEARCH_QUIZ,
     searchedFor
 })
+
 // thunks
 export const search_quizzes = (searched) => async(dispatch)=>{
     const res = await fetch(`/api/quizzes/search`, {
@@ -31,6 +31,7 @@ export const search_quizzes = (searched) => async(dispatch)=>{
         return "ERROR AT SEARCH QUIZ THUNK"
     }
 }
+
 // reducer
 const initialState = {}
 const searchReducer = (state = initialState, action) =>{

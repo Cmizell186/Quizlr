@@ -16,6 +16,7 @@ import SpecificQuiz from './components/quizzes/specificQuiz';
 import SplashPage from './components/splashpage/splashPage';
 import HomePage from './components/homePage.js/homePage';
 import Demo from './components/auth/demo';
+import SearchPageList from './components/searchbar/SearchPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -63,6 +64,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/home">
           <HomePage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/search">
+          <SearchPageList />
         </ProtectedRoute>
         <Route path="/demo">
           <Demo/>
