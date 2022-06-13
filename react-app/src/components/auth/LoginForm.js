@@ -5,6 +5,10 @@ import { login } from '../../store/session';
 import Popup from 'reactjs-popup';
 import "./index.css"
 
+// react mui imports
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -49,26 +53,28 @@ const LoginForm = () => {
         <p style={{color:"black"}} className="login-modal-label">Login</p>
         <form onSubmit={onLogin} className='login-modal-div'>
           <div className='email-login-div'>
-            <label htmlFor='email' style={{color:"#FFCD1F"}} className="login-modal-label">Email</label>
-            <input
-              name='email'
-              type='text'
-              placeholder='Email'
+            <TextField
+              id="standard-password-input"
+              label="Email"
+              autoComplete="off"
+              variant="standard"
+              style={{width:"50%", marginLeft: "25%"}}
               value={email}
               onChange={updateEmail}
-              className="login-input"
-              />
+            />
           </div>
           <div className='password-login-div'>
-            <label htmlFor='password'  style={{color:"#FFCD1F"}} className="login-modal-label">Password</label>
-            <input
+            <TextField
+              id="standard-password-input"
+              type="password"
+              label="Password"
               name='password'
-              type='password'
-              placeholder='Password'
+              autoComplete="off"
+              variant="standard"
+              style={{width:"50%", marginLeft: "25%"}}
               value={password}
               onChange={updatePassword}
-              className="login-input"
-              />
+            />
           </div>
           <button type='submit' id="confirm-edit-flashcard" className='login-modal-btn'>Login</button>
           <div>
