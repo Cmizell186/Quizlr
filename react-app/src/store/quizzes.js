@@ -4,7 +4,7 @@ const GET_ONE_QUIZ = 'quizzes/GET_ONE_QUIZ';
 const POST_QUIZ = 'quizzes/POST_QUIZ';
 const EDIT_QUIZ = 'quizzes/EDIT_QUIZ';
 const DELETE_QUIZ = 'quizzes/DELETE_QUIZ';
-const SEARCH_QUIZ = 'quizzes/SEARCH_QUIZ';
+// const SEARCH_QUIZ = 'quizzes/SEARCH_QUIZ';
 
 // actions
 const getQuizzes = (quizzes) => ({
@@ -32,10 +32,10 @@ const deleteQuiz = (id) =>({
     quiz_id: id
 })
 
-const searchQuiz = (searchedFor) =>({
-    type: SEARCH_QUIZ,
-    searchedFor
-})
+// const searchQuiz = (searchedFor) =>({
+//     type: SEARCH_QUIZ,
+//     searchedFor
+// })
 // thunks
 export const get_all_quizzes = (id) => async(dispatch) =>{
     const res = await fetch(`/api/quizzes/${id}`)
@@ -123,29 +123,29 @@ export const delete_quiz = (id) => async(dispatch) =>{
     }
 }
 
-export const search_quizzes = (searched) => async(dispatch)=>{
-    const res = await fetch(`/api/quizzes/search`, {
-        method: "POST",
-        headers:{
-            "Accept": 'application/json',
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(searched)
-    })
+// export const search_quizzes = (searched) => async(dispatch)=>{
+//     const res = await fetch(`/api/quizzes/search`, {
+//         method: "POST",
+//         headers:{
+//             "Accept": 'application/json',
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(searched)
+//     })
 
-    if(res.ok){
-        const quizzesSearched = await res.json()
-        dispatch(searchQuiz(quizzesSearched))
-        console.log(quizzesSearched, "quizzesSearched")
-    } else if (res.status < 500){
-        const data = await res.json();
-        if(data.error){
-            return data.error
-        }
-    } else {
-        return "ERROR AT SEARCH QUIZ THUNK"
-    }
-}
+//     if(res.ok){
+//         const quizzesSearched = await res.json()
+//         dispatch(searchQuiz(quizzesSearched))
+//         console.log(quizzesSearched, "quizzesSearched")
+//     } else if (res.status < 500){
+//         const data = await res.json();
+//         if(data.error){
+//             return data.error
+//         }
+//     } else {
+//         return "ERROR AT SEARCH QUIZ THUNK"
+//     }
+// }
 
 const initialState = {}
 const quizReducer = (state = initialState, action) =>{
@@ -175,10 +175,10 @@ const quizReducer = (state = initialState, action) =>{
             newState = {...state};
             delete newState[action.quiz_id]
             return newState
-        case SEARCH_QUIZ:
-            newState = {};
-            action.searchedFor.quizzes.forEach((quiz) => (newState[quiz.id] = quiz))
-            return newState
+        // case SEARCH_QUIZ:
+        //     newState = {};
+        //     action.searchedFor.searched_for.forEach((quiz) => (newState[quiz.id] = quiz))
+        //     return newState
         default:
             return state
     }

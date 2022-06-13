@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
-import {search_quizzes} from "../../store/quizzes";
+import { search_quizzes } from "../../store/searchQuizzes";
 
 const SearchBar = () =>{
     const [searchWord, setSearchWord] = useState("");
