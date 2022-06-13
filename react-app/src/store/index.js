@@ -6,12 +6,14 @@ import session from './session'
 import subjectReducer from './subjects';
 import quizReducer from './quizzes';
 import flashcardsReducer from './flashcards';
+import searchReducer from './searchQuizzes';
 
 const rootReducer = combineReducers({
   session,
   subjects: subjectReducer,
   quizzes: quizReducer,
   flashcards: flashcardsReducer,
+  searchedFor: searchReducer,
 });
 
 
