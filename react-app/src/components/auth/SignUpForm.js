@@ -65,14 +65,6 @@ const SignUpForm = () => {
         <p style={{color:"black"}} className="login-modal-label">Sign Up</p>
         <form onSubmit={onSignUp}>
           <div className='email-login-div'>
-            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">User Name</label> */}
-            {/* <input
-              type='text'
-              name='username'
-              onChange={updateUsername}
-              value={username}
-              className="login-input"
-              ></input> */}
             <TextField
               name='username'
               id="standard-password-input"
@@ -85,14 +77,6 @@ const SignUpForm = () => {
             />
           </div>
           <div className='email-login-div'>
-            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">Email</label>
-            <input
-              type='text'
-              name='email'
-              onChange={updateEmail}
-              value={email}
-              className="login-input"
-              ></input> */}
             <TextField
               name='email'
               id="standard-password-input"
@@ -105,14 +89,6 @@ const SignUpForm = () => {
             />
           </div>
           <div className='password-login-div'>
-            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">Password</label>
-            <input
-              type='password'
-              name='password'
-              onChange={updatePassword}
-              value={password}
-              className="login-input"
-              ></input> */}
             <TextField
               id="standard-password-input"
               type="password"
@@ -126,15 +102,6 @@ const SignUpForm = () => {
             />
           </div>
           <div className='password-login-div'>
-            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">Repeat Password</label>
-            <input
-              type='password'
-              name='repeat_password'
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-              className="login-input"
-              ></input> */}
             <TextField
               id="standard-password-input"
               type="password"
