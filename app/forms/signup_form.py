@@ -25,4 +25,4 @@ class SignUpForm(FlaskForm):
         'username', validators=[DataRequired(), username_exists, Length(min=5, max=25, message="Username must be 5-25 characters")])
     email = StringField('email', validators=[DataRequired(), Email(message="Invalid email address"),user_exists])
     password = StringField('password', validators=[DataRequired(), EqualTo('repeat_password', message="passwords must match"), Length(min=7, message="Password must be more than 7 characters")])
-    repeat_password = StringField('repeat_password')
+    repeat_password = StringField('repeat_password', validators=[DataRequired()])

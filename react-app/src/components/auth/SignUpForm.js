@@ -5,6 +5,9 @@ import { signUp } from '../../store/session';
 import Popup from 'reactjs-popup';
 import "./index.css";
 
+// react mui imports
+import TextField from '@mui/material/TextField';
+
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
@@ -62,37 +65,68 @@ const SignUpForm = () => {
         <p style={{color:"black"}} className="login-modal-label">Sign Up</p>
         <form onSubmit={onSignUp}>
           <div className='email-login-div'>
-            <label style={{color:"#FFCD1F"}} className="login-modal-label">User Name</label>
-            <input
+            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">User Name</label> */}
+            {/* <input
               type='text'
               name='username'
               onChange={updateUsername}
               value={username}
               className="login-input"
-              ></input>
+              ></input> */}
+            <TextField
+              name='username'
+              id="standard-password-input"
+              label="User Name"
+              autoComplete="off"
+              variant="standard"
+              style={{width:"50%", marginLeft: "25%"}}
+              value={username}
+              onChange={updateUsername}
+            />
           </div>
           <div className='email-login-div'>
-            <label style={{color:"#FFCD1F"}} className="login-modal-label">Email</label>
+            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">Email</label>
             <input
               type='text'
               name='email'
               onChange={updateEmail}
               value={email}
               className="login-input"
-              ></input>
+              ></input> */}
+            <TextField
+              name='email'
+              id="standard-password-input"
+              label="Email"
+              autoComplete="off"
+              variant="standard"
+              style={{width:"50%", marginLeft: "25%"}}
+              value={email}
+              onChange={updateEmail}
+            />
           </div>
           <div className='password-login-div'>
-            <label style={{color:"#FFCD1F"}} className="login-modal-label">Password</label>
+            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">Password</label>
             <input
               type='password'
               name='password'
               onChange={updatePassword}
               value={password}
               className="login-input"
-              ></input>
+              ></input> */}
+            <TextField
+              id="standard-password-input"
+              type="password"
+              label="Password"
+              name='password'
+              autoComplete="off"
+              variant="standard"
+              style={{width:"50%", marginLeft: "25%"}}
+              value={password}
+              onChange={updatePassword}
+            />
           </div>
           <div className='password-login-div'>
-            <label style={{color:"#FFCD1F"}} className="login-modal-label">Repeat Password</label>
+            {/* <label style={{color:"#FFCD1F"}} className="login-modal-label">Repeat Password</label>
             <input
               type='password'
               name='repeat_password'
@@ -100,7 +134,18 @@ const SignUpForm = () => {
               value={repeatPassword}
               required={true}
               className="login-input"
-              ></input>
+              ></input> */}
+            <TextField
+              id="standard-password-input"
+              type="password"
+              label="Repeat Password"
+              name='repeat_password'
+              autoComplete="off"
+              variant="standard"
+              style={{width:"50%", marginLeft: "25%"}}
+              value={repeatPassword}
+              onChange={updateRepeatPassword}
+            />
           </div>
           <button type='submit' id="confirm-edit-flashcard" className='login-modal-btn'>Sign Up</button>
           <div>

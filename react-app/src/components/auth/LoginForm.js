@@ -6,7 +6,6 @@ import Popup from 'reactjs-popup';
 import "./index.css"
 
 // react mui imports
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 const LoginForm = () => {
