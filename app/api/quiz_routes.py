@@ -84,8 +84,7 @@ def search_quiz():
     quiz = Quiz.query
     if form.validate_on_submit():
         search_word = form.searched.data
-        print(search_word, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
         # query database
-        quiz.searched = quiz.filter(Quiz.title.like('%' + search_word + '%'))
+        quiz.searched = quiz.filter(Quiz.title.ilike('%' + search_word + '%'))
         return {"searched_for": [quiz.to_dict() for quiz in quiz.searched]}
     return {"error": validation_errors_to_error_messages(form.errors)}, 401

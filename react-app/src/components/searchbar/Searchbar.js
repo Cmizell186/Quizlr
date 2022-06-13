@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { search_quizzes } from "../../store/searchQuizzes";
 
+// react mui imports
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 const SearchBar = () =>{
     const [searchWord, setSearchWord] = useState("");
     const dispatch = useDispatch();
@@ -25,14 +29,16 @@ const SearchBar = () =>{
 
     return(
         <>
-            <form onSubmit={e => handleSubmit(e)}>
-                <input
-                   type='text'
-                   name='searched'
-                   placeholder="Search For Quizzes!"
-                   value={searchWord}
-                   onChange={e => setSearchWord(e.target.value)}
-                />
+            <form onSubmit={e => handleSubmit(e)} style={{width: "10vw", height: "5vh"}}>
+                <TextField
+                    autoComplete="off"
+                    id="outlined-search"
+                    label="Search by title"
+                    type="search"
+                    name="searched"
+                    value={searchWord}
+                    onChange={e => setSearchWord(e.target.value)}
+                    />
             </form>
         </>
     )
