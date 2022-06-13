@@ -5,6 +5,9 @@ import { post_new_flashcard } from "../../store/flashcards";
 import Popup from "reactjs-popup";
 import "./flashcardList.css"
 
+// react mui imports
+import TextareaAutosize from '@mui/base/TextareaAutosize';
+
 const NewFlashcardForm = () =>{
     // react hooks
     const dispatch = useDispatch();
@@ -50,6 +53,14 @@ const NewFlashcardForm = () =>{
             <Popup open={open} modal>
                 <form className="new-flashcard-form" onSubmit={e => handleSubmit(e)}>
                     <p style={{color:"black"}}>Create New Flashcard</p>
+                    {/* <TextareaAutosize
+                        aria-label="minimum height"
+                        minRows={10}
+                        placeholder="Front of flashcard"
+                        style={{ width: 200, height: "200px" }}
+                        value={front}
+                        onChange={e => setFront(e.target.value)}
+                    /> */}
                     <input
                         id="new-front"
                         type='text'
