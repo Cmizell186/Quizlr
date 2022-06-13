@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import "./NavBar.css"
 import LoginForm from './auth/LoginForm';
 import SignUpForm from './auth/SignUpForm';
+import SearchBar from './searchbar/Searchbar';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -26,6 +27,9 @@ const NavBar = () => {
         <div className='right-content'>
         {sessionUser ?
         <>
+          <div>
+            <SearchBar />
+          </div>
           <div className='profile-button'>
             <NavLink to={`/users/${sessionUser.id}`}>
               Profile

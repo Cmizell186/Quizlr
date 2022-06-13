@@ -41,7 +41,7 @@ const SplashPage = () =>{
                     </div>
                     <div className="jam-splash-desc">
                         <h2 id="flashcard-info-h2">Whether you plan or cram, find your study jam.</h2>
-                        <p id="flashcard-info-p">Early morning? All-nighter? With teaching methods backed by learning science, Quizlet is designed to save you time.</p>
+                        <p id="flashcard-info-p">Early morning? All-nighter? With teaching methods backed by learning science, Quizlr is designed to save you time.</p>
                     </div>
                 </div>
             </div>

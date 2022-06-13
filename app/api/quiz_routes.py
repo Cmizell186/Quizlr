@@ -1,10 +1,11 @@
 from crypt import methods
-from flask import Blueprint, request, session
+from flask import Blueprint, render_template, request, session
 from flask_login import current_user
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.models import db, Quiz, FlashCard
 from app.forms.quiz_form import NewQuizForm
 from app.forms.edit_quiz_form import EditQuiz
+from app.forms.search_quiz_form import SearchQuizForm
 
 quiz_routes = Blueprint('quizzes', __name__)
 
@@ -72,3 +73,19 @@ def delete_quiz(id):
     db.session.delete(quiz)
     db.session.commit()
     return "successful delete"
+
+
+# search bar route
+@quiz_routes.route('/search', methods=["POST"])
+def search_quiz():
+    form = SearchQuizForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data)
+    quiz = Quiz.query
+    if form.validate_on_submit():
+        search_word = form.searched.data
+        print(search_word, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        # query database
+        quiz.searched = quiz.filter(Quiz.title.like('%' + search_word + '%'))
+        return {"quizzes": [quiz.to_dict() for quiz in quiz.searched]}
+    return {"error": validation_errors_to_error_messages(form.errors)}, 401
