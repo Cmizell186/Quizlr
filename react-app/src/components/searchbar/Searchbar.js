@@ -31,6 +31,7 @@ const SearchBar = () =>{
         <>
             <form onSubmit={e => handleSubmit(e)} style={{width: "10vw", height: "5vh"}}>
                 <TextField
+                    autoComplete="off"
                     id="outlined-search"
                     label="Search by title"
                     type="search"
