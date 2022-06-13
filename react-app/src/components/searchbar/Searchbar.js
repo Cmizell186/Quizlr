@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { search_quizzes } from "../../store/searchQuizzes";
 
+
+
 const SearchBar = () =>{
     const [searchWord, setSearchWord] = useState("");
     const dispatch = useDispatch();

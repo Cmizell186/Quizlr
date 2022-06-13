@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const SearchPageList = () =>{
 
     const searchedQuizzes = useSelector(state => Object.values(state.searchedFor))
-    console.log(searchedQuizzes, "<><><><><><><><><><><><><")
+
     return(
         <div  className="user-page-container">
             <h1 style={{color:"rgb(66, 85, 255)"}} className="subject-title">Searched Page</h1>
