@@ -32,9 +32,9 @@ const deleteQuiz = (id) =>({
     quiz_id: id
 })
 
-const searchQuiz = (quizzes) =>({
+const searchQuiz = (searchedFor) =>({
     type: SEARCH_QUIZ,
-    quizzes
+    searchedFor
 })
 // thunks
 export const get_all_quizzes = (id) => async(dispatch) =>{
@@ -136,7 +136,7 @@ export const search_quizzes = (searched) => async(dispatch)=>{
     if(res.ok){
         const quizzesSearched = await res.json()
         dispatch(searchQuiz(quizzesSearched))
-        console.log(quizzesSearched)
+        console.log(quizzesSearched, "quizzesSearched")
     } else if (res.status < 500){
         const data = await res.json();
         if(data.error){
@@ -177,7 +177,7 @@ const quizReducer = (state = initialState, action) =>{
             return newState
         case SEARCH_QUIZ:
             newState = {};
-            action.quizzes.forEach((quiz) => (newState[quiz.id] = quiz))
+            action.searchedFor.quizzes.forEach((quiz) => (newState[quiz.id] = quiz))
             return newState
         default:
             return state

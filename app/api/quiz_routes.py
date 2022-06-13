@@ -87,6 +87,5 @@ def search_quiz():
         print(search_word, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
         # query database
         quiz.searched = quiz.filter(Quiz.title.like('%' + search_word + '%'))
-        quiz = quiz.order_by(Quiz.title).all()
-        return quiz.to_dict()
+        return {"quizzes": [quiz.to_dict() for quiz in quiz.searched]}
     return {"error": validation_errors_to_error_messages(form.errors)}, 401
