@@ -32,19 +32,12 @@ const SearchBar = () =>{
             <form onSubmit={e => handleSubmit(e)} style={{width: "10vw", height: "5vh"}}>
                 <TextField
                     id="outlined-search"
-                    label="Search field"
+                    label="Search by title"
                     type="search"
                     name="searched"
                     value={searchWord}
                     onChange={e => setSearchWord(e.target.value)}
                     />
-                {/* <input
-                   type='text'
-                   name='searched'
-                   placeholder="Search For Quizzes!"
-                   value={searchWord}
-                   onChange={e => setSearchWord(e.target.value)}
-                /> */}
             </form>
         </>
     )
