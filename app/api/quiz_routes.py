@@ -80,12 +80,13 @@ def delete_quiz(id):
 def search_quiz():
     form = SearchQuizForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print(form.data)
     quiz = Quiz.query
     if form.validate_on_submit():
         search_word = form.searched.data
+        print(search_word, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
         # query database
-        quiz = quiz.filter(Quiz.title.like('%' + search_word + '%'))
+        quiz.searched = quiz.filter(Quiz.title.like('%' + search_word + '%'))
         quiz = quiz.order_by(Quiz.title).all()
         return quiz.to_dict()
     return {"error": validation_errors_to_error_messages(form.errors)}, 401

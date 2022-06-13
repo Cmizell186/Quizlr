@@ -11,7 +11,7 @@ const HomePage = () =>{
     const dispatch = useDispatch()
     const quizzes = useSelector(state => Object.values(state.quizzes).slice(0,6))
     const randomQuizzes = quizzes[Math.floor(Math.random()*quizzes.length)]
-    console.log(randomQuizzes)
+    // console.log(randomQuizzes)
     useEffect(() =>{
         dispatch(get_quizzes())
     }, [dispatch])

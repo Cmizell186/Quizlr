@@ -123,14 +123,14 @@ export const delete_quiz = (id) => async(dispatch) =>{
     }
 }
 
-export const search_quizzes = (search_word) => async(dispatch)=>{
+export const search_quizzes = (searched) => async(dispatch)=>{
     const res = await fetch(`/api/quizzes/search`, {
         method: "POST",
         headers:{
             "Accept": 'application/json',
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(search_word)
+        body: JSON.stringify(searched)
     })
 
     if(res.ok){

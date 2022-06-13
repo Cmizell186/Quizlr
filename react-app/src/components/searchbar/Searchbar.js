@@ -9,7 +9,11 @@ const SearchBar = () =>{
     const handleSubmit = async(e) =>{
         e.preventDefault();
 
-        await dispatch(search_quizzes(searchWord))
+        const searchingWords = {
+            searched:searchWord,
+        }
+
+        await dispatch(search_quizzes(searchingWords))
         setSearchWord("")
     }
 
