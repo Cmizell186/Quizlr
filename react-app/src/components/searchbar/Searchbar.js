@@ -12,7 +12,7 @@ const SearchBar = () =>{
     const dispatch = useDispatch();
     const history = useHistory();
     const searchedQuizzes = useSelector(state => Object.values(state.searchedFor))
-    console.log(searchedQuizzes)
+    // console.log(searchedQuizzes)
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
