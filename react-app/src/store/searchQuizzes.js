@@ -21,7 +21,7 @@ export const search_quizzes = (searched) => async(dispatch)=>{
     if(res.ok){
         const quizzesSearched = await res.json()
         dispatch(searchQuiz(quizzesSearched))
-        console.log(quizzesSearched, "quizzesSearched")
+        // console.log(quizzesSearched, "quizzesSearched")
     } else if (res.status < 500){
         const data = await res.json();
         if(data.error){
