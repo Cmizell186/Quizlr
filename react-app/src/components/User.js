@@ -37,6 +37,14 @@ function User() {
                 <p className='user-email'>{emailName}</p>
             </div>
             <div className='user-quizzes'>
+                {userQuizzes?.length === 0 ?
+                    <div className='no-quizzes'>
+                        <img alt="No sets found in library" src="https://assets.quizlet.com/a/j/dist/app/i/library/sets_empty.4533dc3cae314a7.svg"/>
+                        <h3 className='not-created-h3'>Looks like you haven't created <br/>any quizzes yet!</h3>
+                        <h4 className='not-created-h4'>Create quiz on any subject <br/> to start studying!</h4>
+                    </div>
+
+                : <></>}
                 {userQuizzes?.map((quiz) =>(
                     <div key={quiz?.id} className="quiz-info-area">
                         <div className='quiz-info-div'>
