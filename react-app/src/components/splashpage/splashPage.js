@@ -10,7 +10,7 @@ const SplashPage = () =>{
     return (
         <>
             <div className="chris-image-container">
-                <img  className="splash-image" src="splashPhoto"/>
+                <img  className="splash-image" src="../../../public/static/images/chris-splash-photo.png"/>
             </div>
             <div className="text-splash-area">
                 <h1 style={{color: 'white', fontSize:'32px'}}>
@@ -41,7 +41,7 @@ const SplashPage = () =>{
                 </div>
                 <div className="jam-on-area">
                     <div className="jam-image">
-                        <img height="400" width="514" src="razerPhoto"/>
+                        <img height="400" width="514" src="../../../public/static/images/razer-nommo-chroma.png"/>
                     </div>
                     <div className="jam-splash-desc">
                         <h2 id="flashcard-info-h2">Whether you plan or cram, find your study jam.</h2>
