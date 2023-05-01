@@ -1,14 +1,16 @@
 import React from "react";
 import "./splashPage.css";
-// import "../../public/static/images"
-import "react-app/public/static/images";
+import splashPhoto from  "../../../public/static/images/chris-splash-photo.png"
+import razerPhoto from  "../../../public/static/images/razer-nommo-chroma.png";
+
+
 
 
 const SplashPage = () =>{
     return (
         <>
             <div className="chris-image-container">
-                <img  className="splash-image" src="react-app/public/static/images/chris-splash-photo.png"/>
+                <img  className="splash-image" src="splashPhoto"/>
             </div>
             <div className="text-splash-area">
                 <h1 style={{color: 'white', fontSize:'32px'}}>
@@ -39,7 +41,7 @@ const SplashPage = () =>{
                 </div>
                 <div className="jam-on-area">
                     <div className="jam-image">
-                        <img height="400" width="514" src="/home/chris/chris-captstone-project/react-app/public/static/images/razer-nommo-chroma.pngrazer-nommo-chroma"/>
+                        <img height="400" width="514" src="razerPhoto"/>
                     </div>
                     <div className="jam-splash-desc">
                         <h2 id="flashcard-info-h2">Whether you plan or cram, find your study jam.</h2>
